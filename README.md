@@ -1,5 +1,7 @@
 # AgentVouch
 
+![AgentVouch — on-chain reputation for Agent ID](site/assets/logo-vouch.png)
+
 An on-chain attestation graph between Binance Agent ID holders, built for the
 Binance Wallet × BNB Chain Agent ID Hackathon.
 

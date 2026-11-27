@@ -597,7 +597,7 @@ function renderChrome(active) {
   if (header) {
     header.innerHTML =
       '<div class="wrap header-in">' +
-      '<a class="brand" href="index.html"><span class="brand-mark">AV</span> AgentVouch</a>' +
+      '<a class="brand" href="index.html"><img class="brand-mark" src="assets/logo-mark.png" alt="AgentVouch logo"> AgentVouch</a>' +
       "<nav>" +
       nav
         .map(

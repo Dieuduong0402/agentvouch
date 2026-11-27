@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-11-26T17:26:50Z",
+  "generatedAt": "2026-11-27T03:18:43Z",
   "contract": "0xed4d84A891EA97aAb5D412cd36035dd7aA7BF2b9",
-  "scannedToBlock": 135886375,
-  "totalMinted": 9,
-  "totalHolders": 9,
+  "scannedToBlock": 135962061,
+  "totalMinted": 155,
+  "totalHolders": 155,
   "eventHoldersMismatch": false,
   "tierDistribution": {
-    "0": 9,
+    "0": 155,
     "1": 0,
     "2": 0,
     "3": 0,
@@ -93,51 +93,1365 @@
       "handle": "ikball117",
       "tier": 0,
       "tierName": "Member"
+    },
+    {
+      "address": "0xDbe747d877F81661Ead1cA440D636a99BBCe837f",
+      "tokenId": 10,
+      "firstSeenBlock": 135886509,
+      "firstSeenTx": "0xd15b2629d620f859d2b4fb0c7a7df719c72f559dcdd04634a4a2925ad124627a",
+      "handle": "2777",
+      "tier": 0,
+      "tierName": "Member"
+    },
+    {
+      "address": "0x0501874B96A586559e82287825e26dFCDEe8bC8e",
+      "tokenId": 11,
+      "firstSeenBlock": 135886571,
+      "firstSeenTx": "0x7df8c1b326b911663fb452067bd50ef6b74e79e058573fcc4fc32bcaab765ce1",
+      "handle": "fishball",
+      "tier": 0,
+      "tierName": "Member"
+    },
+    {
+      "address": "0x0a90F878E4CF3EF3BC0Ee4a67e2FF0166986ad5F",
+      "tokenId": 12,
+      "firstSeenBlock": 135886684,
+      "firstSeenTx": "0x91d13801c0206bd7a91e8cb374b3f9df85374fabc1850ad6b72eaf2351a24ae7",
+      "handle": "kingkoung",
+      "tier": 0,
+      "tierName": "Member"
+    },
+    {
+      "address": "0xe55CEd81314EDF295594fEcc1ed5f27d5D3B2eae",
+      "tokenId": 13,
+      "firstSeenBlock": 135886828,
+      "firstSeenTx": "0xd127b027b836afdfbf3a917013033033d6bffe9dbd7eaf6ab81f2335e2f3d52e",
+      "handle": "guli520",
+      "tier": 0,
+      "tierName": "Member"
+    },
+    {
+      "address": "0xE1E005fA06E1cE43797C5A936BA59b824453D8Bb",
+      "tokenId": 14,
+      "firstSeenBlock": 135886837,
+      "firstSeenTx": "0x63e06146a407f3642cb99ea2c3d68195770cf9b52489fff7022770b5d0bd8e49",
+      "handle": "guli444",
+      "tier": 0,
+      "tierName": "Member"
+    },
+    {
+      "address": "0x798C87dc6F9CE1Df9944a42c522013F22809397c",
+      "tokenId": 15,
+      "firstSeenBlock": 135886848,
+      "firstSeenTx": "0x4cd0ca9712fb4394ebb05a2ec88e3ce6fdb74cc75d8c08c8f30ef7ec958000b9",
+      "handle": "guli888",
+      "tier": 0,
+      "tierName": "Member"
+    },
+    {
+      "address": "0xa96bA2ECaCBcC0e986313cBe6d061798d983786f",
+      "tokenId": 16,
+      "firstSeenBlock": 135886858,
+      "firstSeenTx": "0xb8e0f60f713e094055f3bc674238c3e526b907471f7cf364aff66d801d89f1a3",
+      "handle": "guli666",
+      "tier": 0,
+      "tierName": "Member"
+    },
+    {
+      "address": "0xc8E6A46c8779EAcabC76E2aBc2335e02F220d0cD",
+      "tokenId": 17,
+      "firstSeenBlock": 135886868,
+      "firstSeenTx": "0x6f8013e0aa3cd623210c7eabfbb495ffa757804a655a36ce506764843af57392",
+      "handle": "guli111",
+      "tier": 0,
+      "tierName": "Member"
+    },
+    {
+      "address": "0x30588CfBCe27269D4e76128C7eD934e270c9c927",
+      "tokenId": 18,
+      "firstSeenBlock": 135886884,
+      "firstSeenTx": "0xb8635696522bbf21f0ca909861249cdd24d352f6826482b8b08c44acd9fdf0aa",
+      "handle": "guli999",
+      "tier": 0,
+      "tierName": "Member"
+    },
+    {
+      "address": "0xad680B34690ab22Cf273301FB72369Fe0a988806",
+      "tokenId": 19,
+      "firstSeenBlock": 135887056,
+      "firstSeenTx": "0xdaa3bd1cf54e9b789e276f02f0c105925ecdf3ecddaa003e06098386c25b19df",
+      "handle": "1299",
+      "tier": 0,
+      "tierName": "Member"
+    },
+    {
+      "address": "0x5eb8f4dd80ceAb3BC308f012DaD4bE5dcE3639E8",
+      "tokenId": 20,
+      "firstSeenBlock": 135887077,
+      "firstSeenTx": "0x1c9348885efa4d76b0da7a36a36288ad790ce8c30d7c8d3195e13f40532594c7",
+      "handle": "pips",
+      "tier": 0,
+      "tierName": "Member"
+    },
+    {
+      "address": "0xCd710a311aedb31068661B6c8dfcdAff555b806a",
+      "tokenId": 21,
+      "firstSeenBlock": 135887210,
+      "firstSeenTx": "0xb88d4a0eb8f12590e61d3eb432cb6dbdd0f7c5cc1e00e5bea5a74ec595c75a1b",
+      "handle": "19861115",
+      "tier": 0,
+      "tierName": "Member"
+    },
+    {
+      "address": "0xF3CB3B2d32d5e13161FEf727fD5919102ca3091b",
+      "tokenId": 22,
+      "firstSeenBlock": 135887218,
+      "firstSeenTx": "0xd9aa01fa5e97afb40b2cdee1f5768554bb41b1d4a82961d0e60488858afa9331",
+      "handle": "caigou",
+      "tier": 0,
+      "tierName": "Member"
+    },
+    {
+      "address": "0x730d1c42469084210443188C56Ab9D586bEcb4eA",
+      "tokenId": 23,
+      "firstSeenBlock": 135887280,
+      "firstSeenTx": "0x22244f2a2110b2894be451e8cc92099bb2a5bc263890bb62cd30afdbe45f5086",
+      "handle": "washi69",
+      "tier": 0,
+      "tierName": "Member"
+    },
+    {
+      "address": "0x87306af3Cd7C7060E8e20DA22f3112976782D16a",
+      "tokenId": 24,
+      "firstSeenBlock": 135887334,
+      "firstSeenTx": "0x8b883d7e9f1ebd4ec50c9b4e0c173feaece1ddbf5b879244f7d741a3c80fe940",
+      "handle": "xvader",
+      "tier": 0,
+      "tierName": "Member"
+    },
+    {
+      "address": "0x7E81eF37B2a16657a67Fb29493d4F219e775D74c",
+      "tokenId": 25,
+      "firstSeenBlock": 135887399,
+      "firstSeenTx": "0x79f16766ac05489df21d9a785032906822d0d81c07deccf607b3d1b66cf4fc0b",
+      "handle": "fnfish",
+      "tier": 0,
+      "tierName": "Member"
+    },
+    {
+      "address": "0xfcC6573084a4E059ceC1Ca47a7b7Ecd3d998B81c",
+      "tokenId": 26,
+      "firstSeenBlock": 135887399,
+      "firstSeenTx": "0x1de8e70aaafd684534a26ff3f7b1d5c4b70380cba9867de5acc41d5efd6ca8a1",
+      "handle": "zyuan",
+      "tier": 0,
+      "tierName": "Member"
+    },
+    {
+      "address": "0xCE34b5257B6E2174a1e1CA219D0c0F3175E6532F",
+      "tokenId": 27,
+      "firstSeenBlock": 135887399,
+      "firstSeenTx": "0x6b2b37f7ae871bb5c3e88e77b4bb0a95393b95c776640cb74e4000ff5a5887f4",
+      "handle": "mmei",
+      "tier": 0,
+      "tierName": "Member"
+    },
+    {
+      "address": "0xDB5D735Ca8F5285d8C28d51a71c8bEc05b222fc3",
+      "tokenId": 28,
+      "firstSeenBlock": 135887400,
+      "firstSeenTx": "0xf0ab322fbb4a0c1f5ac9892786163cb7338173220deb81a1ddf84fc7acf500b6",
+      "handle": "zhangziheng",
+      "tier": 0,
+      "tierName": "Member"
+    },
+    {
+      "address": "0xc855c1bf0b2a7b75112c2F60787757ce82846a3a",
+      "tokenId": 29,
+      "firstSeenBlock": 135887400,
+      "firstSeenTx": "0x5cd9343a275a4426244b41bd21012075c565f87a23bc52cb46c5a9cb4f58051d",
+      "handle": "zhanghaoran",
+      "tier": 0,
+      "tierName": "Member"
+    },
+    {
+      "address": "0x0a20797e4b059Ed4171f4aba49dAF8eCEa86e240",
+      "tokenId": 30,
+      "firstSeenBlock": 135887400,
+      "firstSeenTx": "0xeebe3afaab338719a1cef58faa295a72c03006016972c9cd79defe1910715653",
+      "handle": "xiaoli0329",
+      "tier": 0,
+      "tierName": "Member"
+    },
+    {
+      "address": "0x3acE3160FAa4AA2cf4BD920097A13D9ae26609f3",
+      "tokenId": 31,
+      "firstSeenBlock": 135887400,
+      "firstSeenTx": "0x476fa9ba6d9c9ad4ee8d1bfe4acf6cd1b4cb98729c6d52aeb608c0a584b9db60",
+      "handle": "xiaopangi",
+      "tier": 0,
+      "tierName": "Member"
+    },
+    {
+      "address": "0x2D4F0cD7f4cB32E6813EB290d20455E15fC7b953",
+      "tokenId": 32,
+      "firstSeenBlock": 135887400,
+      "firstSeenTx": "0xf053d182a7612f09c26b01f69bef8c4cc718efb8a6119eeaebc0fe62ce90856b",
+      "handle": "zjx2001",
+      "tier": 0,
+      "tierName": "Member"
+    },
+    {
+      "address": "0xE6FB57b0459B9Ba51cC6F46a08AcaBaAb5EE5476",
+      "tokenId": 33,
+      "firstSeenBlock": 135887400,
+      "firstSeenTx": "0x5a3dfdd4bdd6460f9e8ad39f84c652f53390415588aa1d1f5306b5e67649c62b",
+      "handle": "deerjc",
+      "tier": 0,
+      "tierName": "Member"
+    },
+    {
+      "address": "0xB322D9Acb2d393E33d728a95d9d33af3761C78e6",
+      "tokenId": 34,
+      "firstSeenBlock": 135887400,
+      "firstSeenTx": "0x8a0d8d653ac1f276755ca17e249e9c51d098e1681f8febde7bb83a9cb16a0a8a",
+      "handle": "huih",
+      "tier": 0,
+      "tierName": "Member"
+    },
+    {
+      "address": "0xf008EDdBFC6871a2b82D5b2bD50164de7Dba7C98",
+      "tokenId": 35,
+      "firstSeenBlock": 135887400,
+      "firstSeenTx": "0x631ab74c3c0f5ad74fbbe96bb0444fb865b91b17fefddd10458d0e0440cbb4f2",
+      "handle": "nofish",
+      "tier": 0,
+      "tierName": "Member"
+    },
+    {
+      "address": "0xA20fB499deE4815D43665202F6729C69477ecc91",
+      "tokenId": 36,
+      "firstSeenBlock": 135887401,
+      "firstSeenTx": "0x73a851627f0d244094f6c2b9322ac01495fc92757b58c797b2ec8d52f343ed54",
+      "handle": "lujiacun",
+      "tier": 0,
+      "tierName": "Member"
+    },
+    {
+      "address": "0x3130313D23e4cEb53e111dFb65D568adA79B3F00",
+      "tokenId": 37,
+      "firstSeenBlock": 135887401,
+      "firstSeenTx": "0xab34a455f9581ecf78a76d200883196970647452df896540cc1e5bee56c9581f",
+      "handle": "gqin",
+      "tier": 0,
+      "tierName": "Member"
+    },
+    {
+      "address": "0xa974E1eA5Ffb85EDdaA81EB33bfEc2E3396e1330",
+      "tokenId": 38,
+      "firstSeenBlock": 135887401,
+      "firstSeenTx": "0xa2fcf1e1b1288f34723eb786c6676d028a6f8ab22b0f588a60d0748169e82107",
+      "handle": "zzsq",
+      "tier": 0,
+      "tierName": "Member"
+    },
+    {
+      "address": "0x802dF89234A06Db24b15497eCd36BBea5A4e3649",
+      "tokenId": 39,
+      "firstSeenBlock": 135887403,
+      "firstSeenTx": "0xd48519f1e396d69c2be2281eaff5629ead4796b9f8343871cbe5fba6abb7ade8",
+      "handle": "aibaby",
+      "tier": 0,
+      "tierName": "Member"
+    },
+    {
+      "address": "0xe9C6734A16501877eA85217899712BdB29881315",
+      "tokenId": 40,
+      "firstSeenBlock": 135887436,
+      "firstSeenTx": "0x277d54541b715718fc6642f2f553084f2d7e54eefce1eeb49010047b531c1f35",
+      "handle": "vans",
+      "tier": 0,
+      "tierName": "Member"
+    },
+    {
+      "address": "0x9D9a7EEe836ad0fbF382799d11FC8711678dA363",
+      "tokenId": 41,
+      "firstSeenBlock": 135887437,
+      "firstSeenTx": "0xd029819ec00e54514ed3dc04f9e98f68dbd98c99b4d0e3e995be5d658da573dd",
+      "handle": "bans",
+      "tier": 0,
+      "tierName": "Member"
+    },
+    {
+      "address": "0xd792F7baa1bDDfaBA0A51A4dE0E6f35Cf7275780",
+      "tokenId": 42,
+      "firstSeenBlock": 135887437,
+      "firstSeenTx": "0x35e8fe88175ae81ba7b49853d79d7bd40ebf2ddcaa397904f8d3339bfdb304c4",
+      "handle": "cans",
+      "tier": 0,
+      "tierName": "Member"
+    },
+    {
+      "address": "0xA8A35aEFF637f06Aa334138AC1ba99B6E8CF6019",
+      "tokenId": 43,
+      "firstSeenBlock": 135887438,
+      "firstSeenTx": "0xf76cff0d592b06b7f62a9bf00f5b30f0b60c60642c8aec4e2ab99ab9e3676fc1",
+      "handle": "xans",
+      "tier": 0,
+      "tierName": "Member"
+    },
+    {
+      "address": "0x593634fF6CCe3450fd993E4C530Df49e83B82c6E",
+      "tokenId": 44,
+      "firstSeenBlock": 135887442,
+      "firstSeenTx": "0xad30a825e045ca927a764b5da11c770b090c161c5e9ded810e57dc30e2397cb3",
+      "handle": "luyancheng0318",
+      "tier": 0,
+      "tierName": "Member"
+    },
+    {
+      "address": "0xF736A1428a7F3BbD3963b706734c5f0bCA6F1B21",
+      "tokenId": 45,
+      "firstSeenBlock": 135887450,
+      "firstSeenTx": "0x67917840c98dbe16e34c15cc4af634ff46cf7db46cb44b39370012069d051e10",
+      "handle": "caicai1",
+      "tier": 0,
+      "tierName": "Member"
+    },
+    {
+      "address": "0x34CC8c4cF5FD9d7Ee1c71760C27113555EF05C20",
+      "tokenId": 46,
+      "firstSeenBlock": 135887453,
+      "firstSeenTx": "0x02d3cc8b2ece4643a8742784026b7de4a522cd15b521978e96e86dd05d979ef6",
+      "handle": "wy9",
+      "tier": 0,
+      "tierName": "Member"
+    },
+    {
+      "address": "0x0b8a39984c683a4cBCD0F9dd72c73fdaE8fEc15A",
+      "tokenId": 47,
+      "firstSeenBlock": 135887457,
+      "firstSeenTx": "0x333c05921834e3993d67b61c5b183a7718e98de6731bc7975c1f6081f312313a",
+      "handle": "tcc",
+      "tier": 0,
+      "tierName": "Member"
+    },
+    {
+      "address": "0x946140472De620042F824989c4e53453E045dC02",
+      "tokenId": 48,
+      "firstSeenBlock": 135887461,
+      "firstSeenTx": "0x449934d5b5c740b956388995bbe3aa7bc2867800901f20bf8b1faec2020da213",
+      "handle": "gta5",
+      "tier": 0,
+      "tierName": "Member"
+    },
+    {
+      "address": "0x1C01BCcF830219f2c837B6b35DD4D3A3e748114d",
+      "tokenId": 49,
+      "firstSeenBlock": 135887465,
+      "firstSeenTx": "0xd7eb22782c5d3da7c0b1febeb6e05ebc2da6971a405cbcae41c90f91af35fc25",
+      "handle": "dxx0789",
+      "tier": 0,
+      "tierName": "Member"
+    },
+    {
+      "address": "0x477Ad0ff870217C7902B3feF55ef150b30065E8f",
+      "tokenId": 50,
+      "firstSeenBlock": 135887469,
+      "firstSeenTx": "0xc0bbaa667266ef8df21c2087275c5f9c548aee0e4eb3b667292c8993ffa48beb",
+      "handle": "whh1874",
+      "tier": 0,
+      "tierName": "Member"
+    },
+    {
+      "address": "0xd77E147727D42D4C3Fc10df2CdD6C48A0eA182F5",
+      "tokenId": 51,
+      "firstSeenBlock": 135887585,
+      "firstSeenTx": "0x281a25937fba5e877393a8285e238bb968f845853203134a651072633ad4f2c8",
+      "handle": "qinx",
+      "tier": 0,
+      "tierName": "Member"
+    },
+    {
+      "address": "0x1384f6e1144024BE9BB2830fB1Ae957CA13052A5",
+      "tokenId": 52,
+      "firstSeenBlock": 135887624,
+      "firstSeenTx": "0x6aeacccbfc44d520382f61b166593ce0913235edb5da94201437e5618067a70d",
+      "handle": "yks",
+      "tier": 0,
+      "tierName": "Member"
+    },
+    {
+      "address": "0x9cB87807c0eB07ae2f2376e8BB4A2d92cDb366b9",
+      "tokenId": 53,
+      "firstSeenBlock": 135887853,
+      "firstSeenTx": "0xcab493d8a7c21e2b707c6c7a42a3a4783285f3c201d463e284e0ecce3e8ce939",
+      "handle": "stcollins",
+      "tier": 0,
+      "tierName": "Member"
+    },
+    {
+      "address": "0xc30d41FAC21E46E7b3a7Ed955383439bD73E573C",
+      "tokenId": 54,
+      "firstSeenBlock": 135888100,
+      "firstSeenTx": "0x3e710a928dd4e6707093831b9cb88acb3f80386c6b3bbfe7f0ac0d21481595c1",
+      "handle": "yanqinghua",
+      "tier": 0,
+      "tierName": "Member"
+    },
+    {
+      "address": "0x7d42fFAFdb1357854c81B6F83AbC9Edee98ED6Ca",
+      "tokenId": 55,
+      "firstSeenBlock": 135888241,
+      "firstSeenTx": "0x370ac8cfcd6d2a4ac420ce1000e6b2890209adeeb23e4b0495aef238783bfe75",
+      "handle": "yhonzod",
+      "tier": 0,
+      "tierName": "Member"
+    },
+    {
+      "address": "0x35A822c73406B5A9E6EEcA6432072B2310EfBEEC",
+      "tokenId": 56,
+      "firstSeenBlock": 135888354,
+      "firstSeenTx": "0xf132e9b0417235457b996cc7a5ede7d92919e2cc29a8c52f31709a47e1280972",
+      "handle": "51bitcoin",
+      "tier": 0,
+      "tierName": "Member"
+    },
+    {
+      "address": "0xB75C888715253b681Fb33FB1f31A8C9b9e8829A9",
+      "tokenId": 57,
+      "firstSeenBlock": 135888406,
+      "firstSeenTx": "0xaf9933583eb73d1a6cb24132fdad7284d26f66de65484c86ceb6763ed6d1e11f",
+      "handle": "xinin",
+      "tier": 0,
+      "tierName": "Member"
+    },
+    {
+      "address": "0x466Ab5D27F802F4c6F3ABc23adB82528B149BeBc",
+      "tokenId": 58,
+      "firstSeenBlock": 135888505,
+      "firstSeenTx": "0xba950c3ecbeda79ff2aeacc442d4522d8bdcf09ba61d6614a26a20f21fec4ac4",
+      "handle": "azwarput",
+      "tier": 0,
+      "tierName": "Member"
+    },
+    {
+      "address": "0x53eE5BeC1b9db40E396fBFF9a078184b0Cc5C798",
+      "tokenId": 59,
+      "firstSeenBlock": 135888584,
+      "firstSeenTx": "0x002052ac9af267bdfa46eac788e1a5bb4d800df68645b7fdf7695726df4df17a",
+      "handle": "sparkv",
+      "tier": 0,
+      "tierName": "Member"
+    },
+    {
+      "address": "0x0c931040Fccb75F7751D25063b4E038d75345789",
+      "tokenId": 60,
+      "firstSeenBlock": 135888597,
+      "firstSeenTx": "0x5bdd80f08b250b5bf25f51dd7577443c97df044785fa623e54111b4eac308539",
+      "handle": "nuul",
+      "tier": 0,
+      "tierName": "Member"
+    },
+    {
+      "address": "0x5890200b0Bca002EBB0E0eebA79a919052E04a8e",
+      "tokenId": 61,
+      "firstSeenBlock": 135888611,
+      "firstSeenTx": "0x792b5d6943f66a703b3ca7fd54ae18b28d1e3f9499e9ae55a1d3699fbd894b71",
+      "handle": "abracadabra",
+      "tier": 0,
+      "tierName": "Member"
+    },
+    {
+      "address": "0x72EEf2a31Df676A2Feb8DFa5bdF0e166db562273",
+      "tokenId": 62,
+      "firstSeenBlock": 135888751,
+      "firstSeenTx": "0xbc12307fd28e6ee93ba5546852a880399c8f2fa0751603630cd8bffe974230ae",
+      "handle": "teko",
+      "tier": 0,
+      "tierName": "Member"
+    },
+    {
+      "address": "0xe4E5AFfc34F5DA2c040F04711c0DD29e869d853F",
+      "tokenId": 63,
+      "firstSeenBlock": 135888927,
+      "firstSeenTx": "0xd351dc3a6ee2cefd399d989132d9999f3b83a9f7d8b6c50925033bd7bc4982ba",
+      "handle": "santoryu",
+      "tier": 0,
+      "tierName": "Member"
+    },
+    {
+      "address": "0x46Cb9293569D6bdCd123611F6F6C61B855ab7F19",
+      "tokenId": 64,
+      "firstSeenBlock": 135889011,
+      "firstSeenTx": "0x4295001a48300ad75982f6d4ab3eafc91a7c3c25528a3a3db84e69a9e117e3e8",
+      "handle": "jolin",
+      "tier": 0,
+      "tierName": "Member"
+    },
+    {
+      "address": "0x9b36D07333A930C60cAe1eeF6e818dcD70715328",
+      "tokenId": 65,
+      "firstSeenBlock": 135889051,
+      "firstSeenTx": "0x2a9b9accc7e6eedcb61b7032f34bdc49175f40f26ecba4ea3650127fefe8a539",
+      "handle": "kuy199",
+      "tier": 0,
+      "tierName": "Member"
+    },
+    {
+      "address": "0xBBDe73FCf8ff0199089c186fa5Ab59DFBCd4c89D",
+      "tokenId": 66,
+      "firstSeenBlock": 135889081,
+      "firstSeenTx": "0xb472969436cfe2c2d59c8203a8242f76d1f5ea51e27faa7216e9488c583d6620",
+      "handle": "sumo520",
+      "tier": 0,
+      "tierName": "Member"
+    },
+    {
+      "address": "0xC2399aeFdE90bf78EC962d5DD93D73561C67Fd01",
+      "tokenId": 67,
+      "firstSeenBlock": 135889114,
+      "firstSeenTx": "0x008d6d3aa95536c797b69c688680a5e649e368dda160d593e5e63966455359f0",
+      "handle": "1314521",
+      "tier": 0,
+      "tierName": "Member"
+    },
+    {
+      "address": "0x8ac287270cfbBe6766BC13415D06c35b8e9b5B29",
+      "tokenId": 68,
+      "firstSeenBlock": 135889121,
+      "firstSeenTx": "0xa97fdb60e036316ed8f7f51bba2ec78c96da6053f2292f6330e5ea96859a4a61",
+      "handle": "maotai",
+      "tier": 0,
+      "tierName": "Member"
+    },
+    {
+      "address": "0x9f94aF548A6323CA976a878d227e3efE0e53Ebc8",
+      "tokenId": 69,
+      "firstSeenBlock": 135889134,
+      "firstSeenTx": "0x12a7d91c611a6a13fd4909c7ebb308332072528b281ce4d2ffd8d887abeb19b9",
+      "handle": "515",
+      "tier": 0,
+      "tierName": "Member"
+    },
+    {
+      "address": "0x1b9cB60d17F6B45D58C265045591C5307A61556C",
+      "tokenId": 70,
+      "firstSeenBlock": 135889158,
+      "firstSeenTx": "0x787ce9204785db50046450b0e66f9252e84db9796841ae6d45326249969fc464",
+      "handle": "kalea",
+      "tier": 0,
+      "tierName": "Member"
+    },
+    {
+      "address": "0x6D678AC8b3f0bEDD065acaC60ce798C64C88954B",
+      "tokenId": 71,
+      "firstSeenBlock": 135889165,
+      "firstSeenTx": "0x47cdd130214931be959e7a509ebec66b70e22a9b8b6520787291d13e0fcc8c22",
+      "handle": "nfc",
+      "tier": 0,
+      "tierName": "Member"
+    },
+    {
+      "address": "0x67A022ba66c091E244D43fce4827E10eF9406E26",
+      "tokenId": 72,
+      "firstSeenBlock": 135889184,
+      "firstSeenTx": "0x484d37ccb27548141ada4aa4c3ddd40f62e171e2b1ac350c6c1030f4b477ffe3",
+      "handle": "715",
+      "tier": 0,
+      "tierName": "Member"
+    },
+    {
+      "address": "0x87a2E536aA7ec86145C10b461FE5d2479335B099",
+      "tokenId": 73,
+      "firstSeenBlock": 135889201,
+      "firstSeenTx": "0x3863add01eaf4f7a71d96c3c21e3f968ac9bd18e2401f5fb54d67193c3c812b4",
+      "handle": "longge",
+      "tier": 0,
+      "tierName": "Member"
+    },
+    {
+      "address": "0x466e0354B966Fc71def468ee53307A7D17BFD12F",
+      "tokenId": 74,
+      "firstSeenBlock": 135889203,
+      "firstSeenTx": "0x293e0f699584b17c20ef91b3d4e823ea3d8612e3810240c85f5376c757d22030",
+      "handle": "091",
+      "tier": 0,
+      "tierName": "Member"
+    },
+    {
+      "address": "0x67d16B3E18668ec0239fBd6f97012bb3Fa8858d6",
+      "tokenId": 75,
+      "firstSeenBlock": 135889222,
+      "firstSeenTx": "0x11760e1be125a9a0b824b42aa5a8e864afc56f4a1e713d8e47625ffa1fb21864",
+      "handle": "eslam1234",
+      "tier": 0,
+      "tierName": "Member"
+    },
+    {
+      "address": "0x258B65AF754fDc5C614399A497D2225Fbb3Fc9eC",
+      "tokenId": 76,
+      "firstSeenBlock": 135889230,
+      "firstSeenTx": "0x62dedfba4e1ebde80223bdc7bc69ee2551720128657c8e9304ad91dc41d69b3c",
+      "handle": "526",
+      "tier": 0,
+      "tierName": "Member"
+    },
+    {
+      "address": "0xAD0386f8332DDb578C337832d8CdE5E76dc9D9f7",
+      "tokenId": 77,
+      "firstSeenBlock": 135889248,
+      "firstSeenTx": "0xd1992725a5497447fae869f4000d7cb8168d672abc8c70c9ef9d0264cc6a8065",
+      "handle": "8o8",
+      "tier": 0,
+      "tierName": "Member"
+    },
+    {
+      "address": "0x0b7564f42D99212a0324d395Dc603585Dc693C0a",
+      "tokenId": 78,
+      "firstSeenBlock": 135889640,
+      "firstSeenTx": "0x2afd8c0ff3fc22713b41c8d1ef88a4bef4da2ca733893dbccd6bddb54e70b42a",
+      "handle": "aiadmin",
+      "tier": 0,
+      "tierName": "Member"
+    },
+    {
+      "address": "0x7430Fb7D8a9d252Aa40f05483247a45B73636143",
+      "tokenId": 79,
+      "firstSeenBlock": 135889703,
+      "firstSeenTx": "0x037ebea5421e8d61952f289dd9afc069725a8561bb376398135625bbcac1c168",
+      "handle": "tarkin",
+      "tier": 0,
+      "tierName": "Member"
+    },
+    {
+      "address": "0x1782D45923b036eB6CA0bA3d713fE7Ff9f6f6CBa",
+      "tokenId": 80,
+      "firstSeenBlock": 135889710,
+      "firstSeenTx": "0x3e6527602e954b676dfa27c2804ca6ca8749f8d05ca1fcc314765dc353b8271f",
+      "handle": "sinsera",
+      "tier": 0,
+      "tierName": "Member"
+    },
+    {
+      "address": "0x58dadB19ef374A26f28cD4250ad19818e57aeBbb",
+      "tokenId": 81,
+      "firstSeenBlock": 135890137,
+      "firstSeenTx": "0x31d6764c8611e7a9ea1b802bb45b742b7d9a916147d416fa085414732604629d",
+      "handle": "9west",
+      "tier": 0,
+      "tierName": "Member"
+    },
+    {
+      "address": "0x12975A0480925B96f016ca6eEAbEcFb7EDDd6c89",
+      "tokenId": 82,
+      "firstSeenBlock": 135890295,
+      "firstSeenTx": "0xde5fb48e689f6c407f0d8d5217b66443b8d0475b1df6f71d312d3209132ff6e4",
+      "handle": "jackalbtc",
+      "tier": 0,
+      "tierName": "Member"
+    },
+    {
+      "address": "0xF899aFc140DA4E087E771Cc496D88d0154c5ccd7",
+      "tokenId": 83,
+      "firstSeenBlock": 135890329,
+      "firstSeenTx": "0xe982b5f9ea8dc06c3e5167bffcf8b0a5dd2ae66d40c7e5c55200cb9d5093f0e3",
+      "handle": "jyq",
+      "tier": 0,
+      "tierName": "Member"
+    },
+    {
+      "address": "0x3801eF401DCBc255160cBEa97fa108a6B57256b5",
+      "tokenId": 84,
+      "firstSeenBlock": 135890362,
+      "firstSeenTx": "0xccd9ddad2a27a12ba92af0977979f368649e4e386f2938f99df7d3b1944a05c1",
+      "handle": "lunarastra",
+      "tier": 0,
+      "tierName": "Member"
+    },
+    {
+      "address": "0x221c63209EB9ADB00186d3407F943a4D55B92631",
+      "tokenId": 85,
+      "firstSeenBlock": 135890437,
+      "firstSeenTx": "0x59c43e075afe518a02121f8f9087c405a49bb93705ed9c7e149ae9bb90106229",
+      "handle": "bigbangexo",
+      "tier": 0,
+      "tierName": "Member"
+    },
+    {
+      "address": "0x12b87BE0680281e1860c49F922f8cB0c51cA7be5",
+      "tokenId": 86,
+      "firstSeenBlock": 135890495,
+      "firstSeenTx": "0x24a01db5d2ea3d21e627ddc89cd75d6d51dab7cbe987cf531cf1c0bf9233b448",
+      "handle": "godworker",
+      "tier": 0,
+      "tierName": "Member"
+    },
+    {
+      "address": "0x570942B83B123367353Dc997110a4D8aa3B33367",
+      "tokenId": 87,
+      "firstSeenBlock": 135890561,
+      "firstSeenTx": "0x847d4014ac45bbade7329ead9e5bc5b4b32531a81d56a74ffbc6074b0a9875cb",
+      "handle": "momopeng",
+      "tier": 0,
+      "tierName": "Member"
+    },
+    {
+      "address": "0x7007Ec62EA316F451Ffc5eDED5847fC881A10A68",
+      "tokenId": 88,
+      "firstSeenBlock": 135890638,
+      "firstSeenTx": "0xa9a7aa29ddead66553e10b4794f19f6954067e1d67df6e9cc375fd0f90c8c48d",
+      "handle": "keepcalm",
+      "tier": 0,
+      "tierName": "Member"
+    },
+    {
+      "address": "0x6EdA5f12F9f560817bb145a46bb2e6b383E62Cb4",
+      "tokenId": 89,
+      "firstSeenBlock": 135890700,
+      "firstSeenTx": "0x040a819a3b71c2b8b9221e5e494ee137a4df0545ff7b03b1f0f07f021b9dd0d9",
+      "handle": "llllino",
+      "tier": 0,
+      "tierName": "Member"
+    },
+    {
+      "address": "0xFd2C0eA0919aa2A43F94795e4bCC660766cb2ba8",
+      "tokenId": 90,
+      "firstSeenBlock": 135890764,
+      "firstSeenTx": "0xea5525246c06c4c3ababd8649352ecb1d343e60a213b78c1050414c4f1724546",
+      "handle": "dao7",
+      "tier": 0,
+      "tierName": "Member"
+    },
+    {
+      "address": "0xC715cD64b3C6bc3c5A34FF84752d3b62C781E9eA",
+      "tokenId": 91,
+      "firstSeenBlock": 135891109,
+      "firstSeenTx": "0xc82c64bdd1fd15f0ca9045aefa0adf31c4228e49026fd0399fd2208a7efbec6c",
+      "handle": "6666bnb",
+      "tier": 0,
+      "tierName": "Member"
+    },
+    {
+      "address": "0xcCFaA6A7DBC37957C262bbF262765d2283d1c3B3",
+      "tokenId": 92,
+      "firstSeenBlock": 135891242,
+      "firstSeenTx": "0x157b035e701cdb91b6b0ba110e8a0c89da25272609a2200450b8345a2dc75b69",
+      "handle": "7770",
+      "tier": 0,
+      "tierName": "Member"
+    },
+    {
+      "address": "0xE126a55c02FAd9f3DD6A704304937295ee023585",
+      "tokenId": 93,
+      "firstSeenBlock": 135891401,
+      "firstSeenTx": "0xc4080b0ee45ff10d0ad412ebc8c26a1d22ef9f374409139fc656b701d3d31c73",
+      "handle": "xinxin8",
+      "tier": 0,
+      "tierName": "Member"
+    },
+    {
+      "address": "0xdA5A2809e1454144F8583728FEE9818f65018346",
+      "tokenId": 94,
+      "firstSeenBlock": 135891407,
+      "firstSeenTx": "0x48fbd55407ccbf68e2f89a5b0c80102dba7e1c1be38ed299a2153f5481b3025e",
+      "handle": "jenny918",
+      "tier": 0,
+      "tierName": "Member"
+    },
+    {
+      "address": "0x0880E49f7d517aE5566eB429339D33e505769c54",
+      "tokenId": 95,
+      "firstSeenBlock": 135891486,
+      "firstSeenTx": "0x885ce68addcab3324490c02833a0096acfe92274eecbfd0fc5d83b51eda471c5",
+      "handle": "fiqras",
+      "tier": 0,
+      "tierName": "Member"
+    },
+    {
+      "address": "0xF1B2098f369eeA617912B9dC79021beFe87245a2",
+      "tokenId": 96,
+      "firstSeenBlock": 135891763,
+      "firstSeenTx": "0x7e2f6bf712980402e82c72f95c14edd710d9458834b555f7a0af3b58671367b7",
+      "handle": "ishol",
+      "tier": 0,
+      "tierName": "Member"
+    },
+    {
+      "address": "0xaF68D8f4554e0ae38CE8CBE54144E0Ade319e161",
+      "tokenId": 97,
+      "firstSeenBlock": 135891857,
+      "firstSeenTx": "0xbc4671103ea62f8ebfb4dcafbcb0c7acbcb658a1f936eebbb77274d9c68650d0",
+      "handle": "lj1988",
+      "tier": 0,
+      "tierName": "Member"
+    },
+    {
+      "address": "0x1a16D7230EcfE2282FAC0B0535338CBc101d4199",
+      "tokenId": 98,
+      "firstSeenBlock": 135892013,
+      "firstSeenTx": "0x13560685926ee132f5945f49ba51e73cc014ed2ebe749831e9b72b62ccc2d00b",
+      "handle": "mcdulll",
+      "tier": 0,
+      "tierName": "Member"
+    },
+    {
+      "address": "0x77CC4D267947a1703456C34E02D41e137C296fd1",
+      "tokenId": 99,
+      "firstSeenBlock": 135892300,
+      "firstSeenTx": "0xa04d71f3cf4f9ccbc07256d4ba43db9593160727519af40572e29871084660d3",
+      "handle": "ab888999",
+      "tier": 0,
+      "tierName": "Member"
+    },
+    {
+      "address": "0x7bC78d06fd2e0E0Ce7E38D21c8459Ec250985684",
+      "tokenId": 100,
+      "firstSeenBlock": 135892327,
+      "firstSeenTx": "0x35bcfeb917c4c2617cade54509c90b44759e77d6e553ea3a549d55937ff6f6ab",
+      "handle": "aa888999",
+      "tier": 0,
+      "tierName": "Member"
+    },
+    {
+      "address": "0x8EB4D39A27F859E8F765b9EB731D3c45714F7778",
+      "tokenId": 101,
+      "firstSeenBlock": 135892355,
+      "firstSeenTx": "0x728c81f8a2ea18cc9d6e40cd28852d1f65e63d20939e85e2b323ce6833ae288e",
+      "handle": "qwe12345",
+      "tier": 0,
+      "tierName": "Member"
+    },
+    {
+      "address": "0x719F5e445ba9f9BB2df02B589F184655A3b6D8c4",
+      "tokenId": 102,
+      "firstSeenBlock": 135892528,
+      "firstSeenTx": "0xc8cd4fbdbfb29bb639b098182c6ae79934d59837bc68663ee3837d66756c1069",
+      "handle": "mingmuse",
+      "tier": 0,
+      "tierName": "Member"
+    },
+    {
+      "address": "0x8E907B9bDCA7293c7F6Dc54E437F9c207E00ba90",
+      "tokenId": 103,
+      "firstSeenBlock": 135892597,
+      "firstSeenTx": "0x46abe778f685716cbb31f2a7b77051689223fcf7e4bef90c5af9b94976c70ee4",
+      "handle": "ihock",
+      "tier": 0,
+      "tierName": "Member"
+    },
+    {
+      "address": "0xE24Ae46004f02F79C35954Eb61FF3723B7e22084",
+      "tokenId": 104,
+      "firstSeenBlock": 135892625,
+      "firstSeenTx": "0x82d2bf17364920fee3770522410cd6707a45bb5342b1fe8c51c5440a59d50dcb",
+      "handle": "james88",
+      "tier": 0,
+      "tierName": "Member"
+    },
+    {
+      "address": "0xC0CD9D93b7658C4C7A318C8C1eB8A68F7D203D80",
+      "tokenId": 105,
+      "firstSeenBlock": 135892697,
+      "firstSeenTx": "0xbe2c1dff40501a92371a32b7206cecd52d0558528c34b66dd9fc5b7c563debac",
+      "handle": "lijun990",
+      "tier": 0,
+      "tierName": "Member"
+    },
+    {
+      "address": "0x907c7fC4537757E4C6558eD9EaCf2c691139bd6D",
+      "tokenId": 106,
+      "firstSeenBlock": 135892826,
+      "firstSeenTx": "0x98182f5204db3b968812033f29960eea0956f65f8b11e93525ef1e72ae367559",
+      "handle": "voz",
+      "tier": 0,
+      "tierName": "Member"
+    },
+    {
+      "address": "0x11583defB8dDaA9D58624a470890b450EbC59ad3",
+      "tokenId": 107,
+      "firstSeenBlock": 135892889,
+      "firstSeenTx": "0x051cbc62511a2b8cf6cdbe22e924289edfd6349bd0dbc86b357f485c629998e8",
+      "handle": "yy8",
+      "tier": 0,
+      "tierName": "Member"
+    },
+    {
+      "address": "0x491a11c79Bd7D32243364e9c5C0e26e9b3b74c89",
+      "tokenId": 108,
+      "firstSeenBlock": 135893800,
+      "firstSeenTx": "0xa690c4372e2b08671053a94c97e5156e7005843e4a528a715ae58dc3f0c1e40f",
+      "handle": "ranging",
+      "tier": 0,
+      "tierName": "Member"
+    },
+    {
+      "address": "0x32fA58dFef0B2a6AE66BfcBE696D8175C5A8A64A",
+      "tokenId": 109,
+      "firstSeenBlock": 135895103,
+      "firstSeenTx": "0xb778d6b1e7a650708508d4ed3076894b685ea1cb25e45f72cf1df85378ebe465",
+      "handle": "ichwann",
+      "tier": 0,
+      "tierName": "Member"
+    },
+    {
+      "address": "0x472640e9dF1F79e915a5cC7E5fFea5D161BFeb0E",
+      "tokenId": 110,
+      "firstSeenBlock": 135895210,
+      "firstSeenTx": "0x91420599d4ff56668f86c13c2afe59e9c16163df4fd00e1d61253600eb31e7b4",
+      "handle": "sircai",
+      "tier": 0,
+      "tierName": "Member"
+    },
+    {
+      "address": "0x1aa6BDf8cc37eAb6685425cC6011Eb3d9a5ac69E",
+      "tokenId": 111,
+      "firstSeenBlock": 135897762,
+      "firstSeenTx": "0xf1381d781a3ee30add547588d5b69daee9f8470ba997cfdb13054949fc25ca1c",
+      "handle": "y2k",
+      "tier": 0,
+      "tierName": "Member"
+    },
+    {
+      "address": "0x6377D3ce7cfc2AC1C067960b3EccBD79fF144e02",
+      "tokenId": 112,
+      "firstSeenBlock": 135897839,
+      "firstSeenTx": "0x6502ac0925cbb420152aa711f43297531c859a2e12e5d65849b1b970400d25c3",
+      "handle": "bigbotai",
+      "tier": 0,
+      "tierName": "Member"
+    },
+    {
+      "address": "0xfBEd52c0C056ec53a4722888A80fF272E037E27c",
+      "tokenId": 113,
+      "firstSeenBlock": 135897847,
+      "firstSeenTx": "0xaae5203880bc4b6f88022577c0598a5a7f5fac29c7b322dcbaa5dcda405a9bb7",
+      "handle": "hoangbip",
+      "tier": 0,
+      "tierName": "Member"
+    },
+    {
+      "address": "0x6b2e2F68D691fa7599F3ecE6f12Fe9b44c36742a",
+      "tokenId": 114,
+      "firstSeenBlock": 135898884,
+      "firstSeenTx": "0xf900575771fb0eb94b47638632f1a78d8a18ad1d1e61f2bef194a952726143fb",
+      "handle": "strongerswols",
+      "tier": 0,
+      "tierName": "Member"
+    },
+    {
+      "address": "0xd767b05284833D212035a82c18bdE508965e9222",
+      "tokenId": 115,
+      "firstSeenBlock": 135899769,
+      "firstSeenTx": "0xad8864656b3255df32ab7dae5e154aaef05a71cd29ae7dd5c25e1f638717d17c",
+      "handle": "long1003",
+      "tier": 0,
+      "tierName": "Member"
+    },
+    {
+      "address": "0x0D468730Db581EF31ecd4Fa6899034eb2111Dc47",
+      "tokenId": 116,
+      "firstSeenBlock": 135900298,
+      "firstSeenTx": "0xb0872c60b27b82e9a3ee83ae24b29f6b85bc07bf60fafe1d290760630327e94b",
+      "handle": "leiru",
+      "tier": 0,
+      "tierName": "Member"
+    },
+    {
+      "address": "0xeBdEe6249F6Cf517220eEB7DCE0EE4708Cc1d267",
+      "tokenId": 117,
+      "firstSeenBlock": 135904952,
+      "firstSeenTx": "0xe3c29c2e5f2c8504edede300f37e8d3ef0aa7348809f8123ca0ec3936fc3eb1f",
+      "handle": "66868",
+      "tier": 0,
+      "tierName": "Member"
+    },
+    {
+      "address": "0x0F7F2bE5257361ba4c8e34eaBf6Ca850BfaAD462",
+      "tokenId": 118,
+      "firstSeenBlock": 135905104,
+      "firstSeenTx": "0x39b418741b81183c812b25940708e05b9bcc25526c7faa20d7c15cf1e4264833",
+      "handle": "jioes",
+      "tier": 0,
+      "tierName": "Member"
+    },
+    {
+      "address": "0xEf414A551d2af82146F4a9C006bD8717cd6c174b",
+      "tokenId": 119,
+      "firstSeenBlock": 135906564,
+      "firstSeenTx": "0x65b23b97ea9c2c23a5a55685e70b4035c4b7a20a3ada84a3da7e81e337d3c556",
+      "handle": "dylikeu",
+      "tier": 0,
+      "tierName": "Member"
+    },
+    {
+      "address": "0x70ce76B00Ba4be36C4BCf4Ea70513A12CdBD3a60",
+      "tokenId": 120,
+      "firstSeenBlock": 135906628,
+      "firstSeenTx": "0xf1e0935cadabad58f8b08aa40ce6e81d1802b7e5aba45711bd333b5959fcf658",
+      "handle": "lanzking",
+      "tier": 0,
+      "tierName": "Member"
+    },
+    {
+      "address": "0x86A49a9E391c5dc143d2d8B2E8BB77e8Bb61EDE9",
+      "tokenId": 121,
+      "firstSeenBlock": 135906793,
+      "firstSeenTx": "0x5e514be6d33ed3a2f5bcd696842e0417169859e967b987d28043c3291a4548e5",
+      "handle": "wy98",
+      "tier": 0,
+      "tierName": "Member"
+    },
+    {
+      "address": "0x61D5353152B2573786Bf640E289a12e00c7C3dF1",
+      "tokenId": 122,
+      "firstSeenBlock": 135906794,
+      "firstSeenTx": "0x102d5928347be8ec1d020071930ed1736279de11957755bbe03e1bd592fba960",
+      "handle": "wy998",
+      "tier": 0,
+      "tierName": "Member"
+    },
+    {
+      "address": "0x6E404729b8bAE938500A502D7dd6a780875f6D8B",
+      "tokenId": 123,
+      "firstSeenBlock": 135907480,
+      "firstSeenTx": "0x8eb2964a56e4a7dad31c55edbdda8299f1ffc3a9507468b76c26aa70a59dde86",
+      "handle": "muhdysa",
+      "tier": 0,
+      "tierName": "Member"
+    },
+    {
+      "address": "0x15829A7baA5d714Ce88892F9E0dd942465e80626",
+      "tokenId": 124,
+      "firstSeenBlock": 135909428,
+      "firstSeenTx": "0xd785f2b64fb6d4d8b471052365647d94746f98b76e84b6f0ce841e11192558a7",
+      "handle": "cream",
+      "tier": 0,
+      "tierName": "Member"
+    },
+    {
+      "address": "0xa7D32220a3980d6F29E8f715D63b27dbFdd1b938",
+      "tokenId": 125,
+      "firstSeenBlock": 135909456,
+      "firstSeenTx": "0xec32f53ff4d64a72a8d85575729d034c16bee4716dbd23714204433964549431",
+      "handle": "pipi3",
+      "tier": 0,
+      "tierName": "Member"
+    },
+    {
+      "address": "0x34Ea2343981b4FC1D55fb551857a94D16f6C0597",
+      "tokenId": 126,
+      "firstSeenBlock": 135909577,
+      "firstSeenTx": "0x6043ef34f5c8c1865a528eeabcdf875b534a82bad70148cda5ad9842c490e1a6",
+      "handle": "xttc",
+      "tier": 0,
+      "tierName": "Member"
+    },
+    {
+      "address": "0x3Cd33444d469721A2E36D6f057f5b24D425cF7d5",
+      "tokenId": 127,
+      "firstSeenBlock": 135910837,
+      "firstSeenTx": "0x8ca2021abdc6873798ff0a6cf426cbb7cf8157e6b8ad79caf8682059abb55b57",
+      "handle": "yida8",
+      "tier": 0,
+      "tierName": "Member"
+    },
+    {
+      "address": "0x0193B638B6f3f4FC1844b0bdf1A7783b437B2779",
+      "tokenId": 128,
+      "firstSeenBlock": 135916929,
+      "firstSeenTx": "0xa8b333cedcf63147f49e0b4f5cc4335766e24ba4b5255e4afda302a241a2efb0",
+      "handle": "andy12",
+      "tier": 0,
+      "tierName": "Member"
+    },
+    {
+      "address": "0xA33B900a3A41cbEC96A6d3A53d2Bea6985a07996",
+      "tokenId": 129,
+      "firstSeenBlock": 135920563,
+      "firstSeenTx": "0xd7e10739dfc51dd1a9987cd6e3d4692de68c2afcdfa576266dcd4ed4cc9b9548",
+      "handle": "7777bnb",
+      "tier": 0,
+      "tierName": "Member"
+    },
+    {
+      "address": "0x608FdBDd4cD1732aE4c60B97582286208257BEc9",
+      "tokenId": 130,
+      "firstSeenBlock": 135922682,
+      "firstSeenTx": "0x7edf8a304079acfba06f616e441dfedfe49424213e6743ab2f0470ec02d63899",
+      "handle": "vicoin",
+      "tier": 0,
+      "tierName": "Member"
+    },
+    {
+      "address": "0x64cc181E2D0262FC18E5c9023705f963054BaeC1",
+      "tokenId": 131,
+      "firstSeenBlock": 135924840,
+      "firstSeenTx": "0xdb628598b01f0dca524e335295be69f3664408d649cad71424d4b8f22e5a794c",
+      "handle": "xueyao",
+      "tier": 0,
+      "tierName": "Member"
+    },
+    {
+      "address": "0xa6bEd08f06102E0ea1F5c1326B5aac85B2A26431",
+      "tokenId": 132,
+      "firstSeenBlock": 135925365,
+      "firstSeenTx": "0x385ed8ca53cabab6d79b61755f359926cbdc74f4936f9434fd875f5c9a5346e3",
+      "handle": "vic668586",
+      "tier": 0,
+      "tierName": "Member"
+    },
+    {
+      "address": "0xc6E28B22c3F79d78dcc74854e65517a16493601F",
+      "tokenId": 133,
+      "firstSeenBlock": 135935355,
+      "firstSeenTx": "0x993e5ce86d1d5a517d599cdf4a5b87cdff65fdbffa9e4eb77dcead495f946932",
+      "handle": "wage",
+      "tier": 0,
+      "tierName": "Member"
+    },
+    {
+      "address": "0x5FC90a14715Bb0AB96F81962F856f3EAE4f1a728",
+      "tokenId": 134,
+      "firstSeenBlock": 135937830,
+      "firstSeenTx": "0x3a730551d8f1171b84a79b47294c5979756095100787da6b51b4a3d5efabfd06",
+      "handle": "smallpotato",
+      "tier": 0,
+      "tierName": "Member"
+    },
+    {
+      "address": "0x62e49331b70E83349B2b931b4b3A2c812e9c1E06",
+      "tokenId": 135,
+      "firstSeenBlock": 135939484,
+      "firstSeenTx": "0x866713f48540d604acb8a2d55c7575debde20bef66fba70506237111eac5db59",
+      "handle": "xin666",
+      "tier": 0,
+      "tierName": "Member"
+    },
+    {
+      "address": "0x96EaDB329353F8E0a95De97cFcA302bBEAC885CD",
+      "tokenId": 136,
+      "firstSeenBlock": 135940760,
+      "firstSeenTx": "0x03d5f747f38d0b415d45de45058762ba63fdb736878941dff3df5e8f546c8e15",
+      "handle": "tbt",
+      "tier": 0,
+      "tierName": "Member"
+    },
+    {
+      "address": "0x0cfB990c48D99E80D48bA52500D8E8fA653C953c",
+      "tokenId": 137,
+      "firstSeenBlock": 135941646,
+      "firstSeenTx": "0xa89db1e3a2b26113866f5247ce3f423e684e7c167b79b6330ba199f2976032af",
+      "handle": "wenwendo",
+      "tier": 0,
+      "tierName": "Member"
+    },
+    {
+      "address": "0x5Ac28eef3f4d6e01f2703576c7E98fe66b4CDE61",
+      "tokenId": 138,
+      "firstSeenBlock": 135942761,
+      "firstSeenTx": "0x7448125305edfda2319dceeb1dd3e5984876f9b84d60cfcf9824f276d60d2883",
+      "handle": "xxckvv",
+      "tier": 0,
+      "tierName": "Member"
+    },
+    {
+      "address": "0x7f393c7C6fab23CC0B84aA6aD5E5B8A832228eDc",
+      "tokenId": 139,
+      "firstSeenBlock": 135944259,
+      "firstSeenTx": "0x31942b5ea8699bc7350cf98055b039046e3f9230dd39871bae3b7598d2a0c387",
+      "handle": "blues1",
+      "tier": 0,
+      "tierName": "Member"
+    },
+    {
+      "address": "0xDAC4B81F0be13634dD40122aedCfeab87b1b6942",
+      "tokenId": 140,
+      "firstSeenBlock": 135944273,
+      "firstSeenTx": "0x13f852790d1807fc2491fee7b8627d2e62436d8b1e1b26f1217a044ee8b64fb2",
+      "handle": "blues2",
+      "tier": 0,
+      "tierName": "Member"
+    },
+    {
+      "address": "0xFf22cf466E56051037852599ba119C4e451177f5",
+      "tokenId": 141,
+      "firstSeenBlock": 135947034,
+      "firstSeenTx": "0x2ba0aa8f89f2d1bb6c8fc8a99445c2a00eb5d0ef8254be5ab06b5dcc57485615",
+      "handle": "nbpro",
+      "tier": 0,
+      "tierName": "Member"
+    },
+    {
+      "address": "0x07B183C9a281C9114879EaD44A0c36BfA7356429",
+      "tokenId": 142,
+      "firstSeenBlock": 135947469,
+      "firstSeenTx": "0x1bf9cf272f6264b2e0b9b7f35ff85cfb75a00c5617ffb3195e48d436d2c30989",
+      "handle": "rafsun",
+      "tier": 0,
+      "tierName": "Member"
+    },
+    {
+      "address": "0xe12A37c922695BcCA37df25bED39322ed6B21605",
+      "tokenId": 143,
+      "firstSeenBlock": 135948547,
+      "firstSeenTx": "0x157901a7c1ac026ee8746253b837fe18314279cd525468b75c03660c9b7746cf",
+      "handle": "dfg666666",
+      "tier": 0,
+      "tierName": "Member"
+    },
+    {
+      "address": "0x3E8b444fa1d704B83389036314e983A2750529Df",
+      "tokenId": 144,
+      "firstSeenBlock": 135948942,
+      "firstSeenTx": "0x032bdabbe62f73ae94b5a601bf34dec297e1a819db28a4937206ca9f53b83bb4",
+      "handle": "voxpopuli",
+      "tier": 0,
+      "tierName": "Member"
+    },
+    {
+      "address": "0xE52fDdeAd4B81428F29fee8B369028276A685150",
+      "tokenId": 145,
+      "firstSeenBlock": 135949728,
+      "firstSeenTx": "0x8a9b0015fac62bf6cfa7eead39f6c44e99d7fe8f141ba0532c3d3556b79c9c0e",
+      "handle": "rith",
+      "tier": 0,
+      "tierName": "Member"
+    },
+    {
+      "address": "0x5FE1D38D7f17233dFdc1352F27d9F1eE92D69014",
+      "tokenId": 146,
+      "firstSeenBlock": 135949772,
+      "firstSeenTx": "0xcb90f87381a349b503d83877b1792edcc099536cb026d114c8f852ff2aac6347",
+      "handle": "1dong29111",
+      "tier": 0,
+      "tierName": "Member"
+    },
+    {
+      "address": "0x8a8D750491958d8E8326f82ECFab147d532F4ad6",
+      "tokenId": 147,
+      "firstSeenBlock": 135951924,
+      "firstSeenTx": "0x368afa0cad6033f536d4038ed50c7459e319ce4f3794e0e4baab1b5283f20251",
+      "handle": "iotex",
+      "tier": 0,
+      "tierName": "Member"
+    },
+    {
+      "address": "0x2F07F95C1174A2CB6da406C8216475fF1ee1300C",
+      "tokenId": 148,
+      "firstSeenBlock": 135955502,
+      "firstSeenTx": "0x09c8f3fcb942f29508b225b479c1fe89483425ebdffb3eea51f9553533612f21",
+      "handle": "furyakt",
+      "tier": 0,
+      "tierName": "Member"
+    },
+    {
+      "address": "0xEc8cb5F3A46B0dBc68737e674f6B15b7B103AafF",
+      "tokenId": 149,
+      "firstSeenBlock": 135955777,
+      "firstSeenTx": "0x171416ca4da2f47b92a6ae0e23ecbb07ad157f69bb5003f5602ab8b30a9da8f6",
+      "handle": "xiaoqingwa",
+      "tier": 0,
+      "tierName": "Member"
+    },
+    {
+      "address": "0x5d89c671921223cEfCd7184576CBb716041F4f4e",
+      "tokenId": 150,
+      "firstSeenBlock": 135956504,
+      "firstSeenTx": "0x42aedaf0f68cf563e873891d89918d78a501620fd95666e72976b9049cbbcf40",
+      "handle": "llllllllll",
+      "tier": 0,
+      "tierName": "Member"
+    },
+    {
+      "address": "0x2d66d566a3aD5E41Fe6776Be69e4163932f24bB5",
+      "tokenId": 151,
+      "firstSeenBlock": 135956517,
+      "firstSeenTx": "0xfb8ef22cbc7f11cf2e93c5787cf878ee5addaec2717a5aaf5d5185eca58d6af1",
+      "handle": "liaolv",
+      "tier": 0,
+      "tierName": "Member"
+    },
+    {
+      "address": "0x34dcbC61087C60b6De8DA175d4784dAd2b0b1224",
+      "tokenId": 152,
+      "firstSeenBlock": 135957022,
+      "firstSeenTx": "0x55543e37616dac1d3c9dca9a3e62f5eb1dca3247cf88c2209e52d45cd7483121",
+      "handle": "szh0704",
+      "tier": 0,
+      "tierName": "Member"
+    },
+    {
+      "address": "0x20a2fd0f137222eCbd2448fC23877B0E74d48266",
+      "tokenId": 153,
+      "firstSeenBlock": 135959011,
+      "firstSeenTx": "0xe0c982829262b32c22824495a46aab193ddd17a66b3c4e9723296b631131d6b6",
+      "handle": "hellojay",
+      "tier": 0,
+      "tierName": "Member"
+    },
+    {
+      "address": "0x9Ea96D42cDCb4FC5c8dEd51F3a711a996679b95e",
+      "tokenId": 154,
+      "firstSeenBlock": 135959727,
+      "firstSeenTx": "0xc24bd1c4b4967d4b1d5be39767b48113f5fc3c25b6a591a0eefe5cedc07d7e65",
+      "handle": "coral",
+      "tier": 0,
+      "tierName": "Member"
+    },
+    {
+      "address": "0x7c2F6872De3678530D34fca7dEBbEFfc9dA73475",
+      "tokenId": 155,
+      "firstSeenBlock": 135960725,
+      "firstSeenTx": "0xa52e7f260981f4dfbca5e50ed952a65e24601994650daff4980531648e08b300",
+      "handle": "harno65",
+      "tier": 0,
+      "tierName": "Member"
     }
   ],
   "newestMinters": [
     {
-      "address": "0x409511537ba53eac0535007C0e24261B7d8DBb67",
-      "tokenId": 9,
-      "firstSeenBlock": 135886339,
-      "firstSeenTx": "0x2c83b8293c9ae46e4293b12b2b3f032f4e201954fcfaf6c926431ebc337c50f3",
-      "handle": "ikball117",
+      "address": "0x7c2F6872De3678530D34fca7dEBbEFfc9dA73475",
+      "tokenId": 155,
+      "firstSeenBlock": 135960725,
+      "firstSeenTx": "0xa52e7f260981f4dfbca5e50ed952a65e24601994650daff4980531648e08b300",
+      "handle": "harno65",
       "tier": 0,
       "tierName": "Member"
     },
     {
-      "address": "0x22CF3CcDA4f4cc65B24c53BCFfBa7a78b058Cf75",
-      "tokenId": 8,
-      "firstSeenBlock": 135886125,
-      "firstSeenTx": "0x9f016526a11cf97d4363aa29bd6a9ab068d6006709e12ed315157dfaa62376e6",
-      "handle": "2276",
+      "address": "0x9Ea96D42cDCb4FC5c8dEd51F3a711a996679b95e",
+      "tokenId": 154,
+      "firstSeenBlock": 135959727,
+      "firstSeenTx": "0xc24bd1c4b4967d4b1d5be39767b48113f5fc3c25b6a591a0eefe5cedc07d7e65",
+      "handle": "coral",
       "tier": 0,
       "tierName": "Member"
     },
     {
-      "address": "0x3cB4e671E2A1ECe36246d397190D6F185eFB4efb",
-      "tokenId": 7,
-      "firstSeenBlock": 135885994,
-      "firstSeenTx": "0x44ef2d44187aa5159892fbfcf55bed796c333facad62f2990562cfd509522e22",
-      "handle": "mm1111",
+      "address": "0x20a2fd0f137222eCbd2448fC23877B0E74d48266",
+      "tokenId": 153,
+      "firstSeenBlock": 135959011,
+      "firstSeenTx": "0xe0c982829262b32c22824495a46aab193ddd17a66b3c4e9723296b631131d6b6",
+      "handle": "hellojay",
       "tier": 0,
       "tierName": "Member"
     },
     {
-      "address": "0xd944bddf954d0C26b32005a5D723948fAd37007a",
-      "tokenId": 6,
-      "firstSeenBlock": 135885992,
-      "firstSeenTx": "0x41553b97a69ecb55e71d04a6a97b3b8b342dababcbbdfa1b19ec81c6d49067f6",
-      "handle": "mm111",
+      "address": "0x34dcbC61087C60b6De8DA175d4784dAd2b0b1224",
+      "tokenId": 152,
+      "firstSeenBlock": 135957022,
+      "firstSeenTx": "0x55543e37616dac1d3c9dca9a3e62f5eb1dca3247cf88c2209e52d45cd7483121",
+      "handle": "szh0704",
       "tier": 0,
       "tierName": "Member"
     },
     {
-      "address": "0xe0eF50928e36B5538B705B0860E8e45705971A07",
-      "tokenId": 5,
-      "firstSeenBlock": 135885756,
-      "firstSeenTx": "0x3663edbc62953ae51d4e8ce825a573c3ec31418628e53bd09eb69a4486185048",
-      "handle": "xiaozhang0113",
+      "address": "0x2d66d566a3aD5E41Fe6776Be69e4163932f24bB5",
+      "tokenId": 151,
+      "firstSeenBlock": 135956517,
+      "firstSeenTx": "0xfb8ef22cbc7f11cf2e93c5787cf878ee5addaec2717a5aaf5d5185eca58d6af1",
+      "handle": "liaolv",
       "tier": 0,
       "tierName": "Member"
     }

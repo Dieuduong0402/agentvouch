@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1240" height="480" viewBox="0 0 1240 480">
+<rect width="1240" height="480" fill="#0b0e13"/>
+<text x="40" y="54" font-family="Arial" font-size="24" font-weight="700" fill="#e8ecf1">HIỆN TẠI — web (vàng BNB trên nền gần đen)</text>
+<rect x="40" y="72" width="150" height="90" rx="10" fill="#0b0e13" stroke="#334155" stroke-width="1"/>
+<text x="40" y="184" font-family="Arial" font-size="15" fill="#cbd5e1">Nền #0b0e13</text>
+<rect x="206" y="72" width="150" height="90" rx="10" fill="#151a23" stroke="#334155" stroke-width="1"/>
+<text x="206" y="184" font-family="Arial" font-size="15" fill="#cbd5e1">Thẻ #151a23</text>
+<rect x="372" y="72" width="150" height="90" rx="10" fill="#e8ecf1" stroke="#334155" stroke-width="1"/>
+<text x="372" y="184" font-family="Arial" font-size="15" fill="#cbd5e1">Chữ #e8ecf1</text>
+<rect x="538" y="72" width="150" height="90" rx="10" fill="#9aa7b5" stroke="#334155" stroke-width="1"/>
+<text x="538" y="184" font-family="Arial" font-size="15" fill="#cbd5e1">Chữ mờ #9aa7b5</text>
+<rect x="704" y="72" width="150" height="90" rx="10" fill="#f0b90b" stroke="#334155" stroke-width="1"/>
+<text x="704" y="184" font-family="Arial" font-size="15" fill="#cbd5e1">Vàng BNB #f0b90b</text>
+<rect x="870" y="72" width="150" height="90" rx="10" fill="#3fb96f" stroke="#334155" stroke-width="1"/>
+<text x="870" y="184" font-family="Arial" font-size="15" fill="#cbd5e1">Xanh ok #3fb96f</text>
+<rect x="1036" y="72" width="150" height="90" rx="10" fill="#e5534b" stroke="#334155" stroke-width="1"/>
+<text x="1036" y="184" font-family="Arial" font-size="15" fill="#cbd5e1">Đỏ #e5534b</text>
+<text x="40" y="284" font-family="Arial" font-size="24" font-weight="700" fill="#e8ecf1">ĐỀ XUẤT — thống nhất với logo + badge (navy + vàng + xanh trust + kem)</text>
+<rect x="40" y="302" width="150" height="90" rx="10" fill="#0f172a" stroke="#334155" stroke-width="1"/>
+<text x="40" y="414" font-family="Arial" font-size="15" fill="#cbd5e1">Nền navy #0f172a</text>
+<rect x="206" y="302" width="150" height="90" rx="10" fill="#1a2540" stroke="#334155" stroke-width="1"/>
+<text x="206" y="414" font-family="Arial" font-size="15" fill="#cbd5e1">Thẻ #1a2540</text>
+<rect x="372" y="302" width="150" height="90" rx="10" fill="#e8ecf1" stroke="#334155" stroke-width="1"/>
+<text x="372" y="414" font-family="Arial" font-size="15" fill="#cbd5e1">Chữ #e8ecf1</text>
+<rect x="538" y="302" width="150" height="90" rx="10" fill="#9aa7b5" stroke="#334155" stroke-width="1"/>
+<text x="538" y="414" font-family="Arial" font-size="15" fill="#cbd5e1">Chữ mờ #9aa7b5</text>
+<rect x="704" y="302" width="150" height="90" rx="10" fill="#f0b90b" stroke="#334155" stroke-width="1"/>
+<text x="704" y="414" font-family="Arial" font-size="15" fill="#cbd5e1">Vàng BNB #f0b90b</text>
+<rect x="870" y="302" width="150" height="90" rx="10" fill="#22c55e" stroke="#334155" stroke-width="1"/>
+<text x="870" y="414" font-family="Arial" font-size="15" fill="#cbd5e1">Xanh trust #22c55e</text>
+<rect x="1036" y="302" width="150" height="90" rx="10" fill="#d6c08a" stroke="#334155" stroke-width="1"/>
+<text x="1036" y="414" font-family="Arial" font-size="15" fill="#cbd5e1">Kem #d6c08a</text>
+</svg>
