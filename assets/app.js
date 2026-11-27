@@ -662,9 +662,9 @@ function initBackgroundRing(canvas) {
   function drawRing(now) {
     // Dotted circle, like the logo: small white dots, no dashes
     // (user 27/11 12:46; 12:54: brighter + more dots so the ring reads
-    // as a circle, and sized to fit fully on screen).
-    const dotR = Math.max(2.5, R * 0.006);
-    ctx.fillStyle = "rgba(255,255,255,0.45)";
+    // as a circle, and sized to fit fully on screen; 13:08: dots brightened 0.45->0.6 so the arc reads through the headline text).
+    const dotR = Math.max(3, R * 0.007);
+    ctx.fillStyle = "rgba(255,255,255,0.6)";
     for (let i = 0; i < 90; i++) {
       const a = rot + (i / 90) * Math.PI * 2;
       ctx.beginPath();
