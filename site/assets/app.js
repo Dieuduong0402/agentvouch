@@ -606,10 +606,11 @@ function animateCount(el, target, durationMs) {
 }
 
 /**
- * Big faint attestation ring behind the whole site (user 27/11 12:30):
- * one large 18-segment ring like the logo, ~2/3 of the viewport, slowly
- * rotating, with particles streaming from the ring into one gold centre
- * point. Fixed, pointer-events none, behind all content. Honors
+ * Big faint attestation ring behind the whole site (user 27/11 12:30,
+ * refined 12:46): one large dotted ring like the logo — small WHITE dots,
+ * ~2/3 of the viewport — with many particles streaming in STRAIGHT lines
+ * from the ring into one WHITE centre point. Particles are yellow + green
+ * only. Fixed, pointer-events none, behind all content. Honors
  * prefers-reduced-motion (one static frame).
  */
 function initBackgroundRing(canvas) {
@@ -620,8 +621,7 @@ function initBackgroundRing(canvas) {
     window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const ctx = canvas.getContext("2d");
   if (!ctx) return;
-  const COLORS = ["#f0b90b", "#22c55e", "#60a5fa", "#c084fc", "#d6c08a"];
-  const SEGMENTS = 18;
+  const COLORS = ["#f0b90b", "#22c55e"]; // user 27/11 12:46: only yellow + green particles
   let W = 0, H = 0, cx = 0, cy = 0, R = 0;
   let particles = [];
   let rot = 0;
@@ -640,7 +640,7 @@ function initBackgroundRing(canvas) {
     canvas.style.height = H + "px";
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     if (!particles.length) {
-      for (let i = 0; i < 64; i++) particles.push(spawn(true));
+      for (let i = 0; i < 120; i++) particles.push(spawn(true));
     }
   }
 
@@ -652,8 +652,7 @@ function initBackgroundRing(canvas) {
     return {
       angle: angle,
       r: rr,
-      speed: 0.45 + Math.random() * 0.75, // px per frame inward
-      swirl: (Math.random() - 0.5) * 0.012, // slight spiral
+      speed: 0.6 + Math.random() * 0.8, // px per frame inward, straight line
       size: 0.9 + Math.random() * 1.7,
       color: COLORS[(Math.random() * COLORS.length) | 0],
       phase: Math.random() * Math.PI * 2,
@@ -661,31 +660,28 @@ function initBackgroundRing(canvas) {
   }
 
   function drawRing(now) {
-    // 18 segments, alternating green/cream, faint, slowly rotating.
-    const segSpan = (Math.PI * 2) / SEGMENTS;
-    const arcLen = segSpan * 0.5;
-    ctx.lineWidth = Math.max(3, R * 0.028);
-    ctx.lineCap = "round";
-    for (let i = 0; i < SEGMENTS; i++) {
-      const a0 = rot + i * segSpan;
-      ctx.strokeStyle = i % 2 === 0 ? "rgba(34,197,94,0.14)" : "rgba(214,192,138,0.14)";
+    // Dotted circle, like the logo: small white dots, no dashes
+    // (user 27/11 12:46). Uniform dots, so the slow rotation is invisible.
+    const dotR = Math.max(1.5, R * 0.0035);
+    ctx.fillStyle = "rgba(255,255,255,0.28)";
+    for (let i = 0; i < 60; i++) {
+      const a = rot + (i / 60) * Math.PI * 2;
       ctx.beginPath();
-      ctx.arc(cx, cy, R, a0, a0 + arcLen);
-      ctx.stroke();
+      ctx.arc(cx + Math.cos(a) * R, cy + Math.sin(a) * R, dotR, 0, Math.PI * 2);
+      ctx.fill();
     }
-    // Centre point — gold dot with a soft halo, gently breathing.
-    // Kept faint on purpose: the dot sits behind text, so it must never
-    // outshine the words (verified 12:39: the bright dot dulled the lede).
+    // Centre point — WHITE dot with a soft white halo, gently breathing
+    // (user 27/11 12:46: ring + centre white, only particles yellow/green).
     const breathe = 1 + 0.08 * Math.sin(now / 900);
     const cr = R * 0.032 * breathe;
     const halo = ctx.createRadialGradient(cx, cy, 0, cx, cy, cr * 5);
-    halo.addColorStop(0, "rgba(240,185,11,0.12)");
-    halo.addColorStop(1, "rgba(240,185,11,0)");
+    halo.addColorStop(0, "rgba(255,255,255,0.12)");
+    halo.addColorStop(1, "rgba(255,255,255,0)");
     ctx.fillStyle = halo;
     ctx.beginPath();
     ctx.arc(cx, cy, cr * 5, 0, Math.PI * 2);
     ctx.fill();
-    ctx.fillStyle = "rgba(240,185,11,0.55)";
+    ctx.fillStyle = "rgba(255,255,255,0.55)";
     ctx.beginPath();
     ctx.arc(cx, cy, cr, 0, Math.PI * 2);
     ctx.fill();
@@ -697,16 +693,14 @@ function initBackgroundRing(canvas) {
     drawRing(now);
     for (let i = 0; i < particles.length; i++) {
       const p = particles[i];
-      p.r -= p.speed;
-      p.angle += p.swirl;
+      p.r -= p.speed; // straight radial line: angle never changes
       if (p.r < R * 0.05) { particles[i] = spawn(false); continue; }
       const x = cx + Math.cos(p.angle) * p.r;
       const y = cy + Math.sin(p.angle) * p.r;
       // Fade in from the ring, fade out into the centre point.
       const fadeIn = (R * 1.08 - p.r) / (R * 0.08);
       const fadeOut = (p.r - R * 0.05) / (R * 0.15);
-      const tw = 0.35 + 0.35 * Math.sin(now / 700 + p.phase);
-      ctx.globalAlpha = Math.max(0.05, Math.min(0.75, tw * Math.min(fadeIn, fadeOut)));
+      ctx.globalAlpha = Math.max(0.05, Math.min(0.8, Math.min(fadeIn, fadeOut)));
       ctx.fillStyle = p.color;
       ctx.beginPath();
       ctx.arc(x, y, p.size, 0, Math.PI * 2);
