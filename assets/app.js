@@ -674,16 +674,18 @@ function initBackgroundRing(canvas) {
       ctx.stroke();
     }
     // Centre point — gold dot with a soft halo, gently breathing.
+    // Kept faint on purpose: the dot sits behind text, so it must never
+    // outshine the words (verified 12:39: the bright dot dulled the lede).
     const breathe = 1 + 0.08 * Math.sin(now / 900);
-    const cr = R * 0.045 * breathe;
-    const halo = ctx.createRadialGradient(cx, cy, 0, cx, cy, cr * 4);
-    halo.addColorStop(0, "rgba(240,185,11,0.20)");
+    const cr = R * 0.032 * breathe;
+    const halo = ctx.createRadialGradient(cx, cy, 0, cx, cy, cr * 5);
+    halo.addColorStop(0, "rgba(240,185,11,0.12)");
     halo.addColorStop(1, "rgba(240,185,11,0)");
     ctx.fillStyle = halo;
     ctx.beginPath();
-    ctx.arc(cx, cy, cr * 4, 0, Math.PI * 2);
+    ctx.arc(cx, cy, cr * 5, 0, Math.PI * 2);
     ctx.fill();
-    ctx.fillStyle = "rgba(240,185,11,0.85)";
+    ctx.fillStyle = "rgba(240,185,11,0.55)";
     ctx.beginPath();
     ctx.arc(cx, cy, cr, 0, Math.PI * 2);
     ctx.fill();
@@ -691,7 +693,7 @@ function initBackgroundRing(canvas) {
 
   function draw(now) {
     ctx.clearRect(0, 0, W, H);
-    rot += 0.00045;
+    rot += 0.001;
     drawRing(now);
     for (let i = 0; i < particles.length; i++) {
       const p = particles[i];
