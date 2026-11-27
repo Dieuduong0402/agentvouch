@@ -606,11 +606,13 @@ function animateCount(el, target, durationMs) {
 }
 
 /**
- * Big faint attestation ring behind the whole site (user 27/11 12:30,
- * refined 12:46): one large dotted ring like the logo — small WHITE dots,
- * ~2/3 of the viewport — with many particles streaming in STRAIGHT lines
- * from the ring into one WHITE centre point. Particles are yellow + green
- * only. Fixed, pointer-events none, behind all content. Honors
+ * Big faint attestation ring behind the HERO frame only (user 27/11 12:30,
+ * refined 12:46, scoped 13:19): one large dotted ring like the logo —
+ * small WHITE dots, ~2/3 of the hero — with many particles streaming in
+ * STRAIGHT lines from the ring into one WHITE centre point. Particles are
+ * yellow + green only. The canvas lives inside <section class="hero">,
+ * absolute, pointer-events none, behind the hero content — it scrolls away
+ * with the hero instead of staying pinned to the viewport. Honors
  * prefers-reduced-motion (one static frame).
  */
 function initBackgroundRing(canvas) {
@@ -629,11 +631,17 @@ function initBackgroundRing(canvas) {
 
   function resize() {
     const dpr = Math.min(2, window.devicePixelRatio || 1);
-    W = window.innerWidth;
-    H = window.innerHeight;
+    // Size to the hero frame, not the viewport (user 27/11 13:19: the ring
+    // belongs to the hero only). Falls back to the viewport if the canvas
+    // ever ends up outside a hero.
+    const box = canvas.parentElement
+      ? canvas.parentElement.getBoundingClientRect()
+      : { width: window.innerWidth, height: window.innerHeight };
+    W = box.width;
+    H = box.height;
     cx = W / 2;
     cy = H / 2;
-    R = 0.5 * Math.min(0.66 * Math.max(W, H), 0.92 * Math.min(W, H)); // as large as possible while the whole circle stays on screen (v3: the old 2/3-of-longer-side ring was taller than the viewport, so only side arcs showed and the dots read as scattered)
+    R = 0.5 * Math.min(0.66 * Math.max(W, H), 0.92 * Math.min(W, H)); // as large as possible while the whole circle stays inside the hero
     canvas.width = Math.max(1, Math.round(W * dpr));
     canvas.height = Math.max(1, Math.round(H * dpr));
     canvas.style.width = W + "px";
@@ -724,6 +732,10 @@ function initBackgroundRing(canvas) {
 
   resize();
   window.addEventListener("resize", resize);
+  // The hero grows when fonts load / the live card fills in — re-fit then.
+  if (typeof ResizeObserver !== "undefined" && canvas.parentElement) {
+    new ResizeObserver(resize).observe(canvas.parentElement);
+  }
   if (reduce) { draw(0); return; }
   raf = requestAnimationFrame(loop);
   document.addEventListener("visibilitychange", function () {
@@ -732,13 +744,17 @@ function initBackgroundRing(canvas) {
   });
 }
 
-/** Mount the background ring canvas once the document exists. */
+/** Mount the background ring canvas inside the hero frame once the
+ *  document exists (user 27/11 13:19: the ring lives only in the hero
+ *  frame — pages without a hero get no ring). */
 function mountBackgroundRing() {
   if (typeof document === "undefined" || document.getElementById("bg-ring")) return;
+  const hero = document.querySelector(".hero");
+  if (!hero) return;
   const bg = document.createElement("canvas");
   bg.id = "bg-ring";
   bg.setAttribute("aria-hidden", "true");
-  document.body.prepend(bg);
+  hero.prepend(bg);
   initBackgroundRing(bg);
 }
 if (typeof document !== "undefined") {

@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>AgentVouch — agents vouch for real work, on-chain</title>
 <meta name="description" content="AgentVouch is an on-chain attestation graph for Binance Agent ID holders on BNB Smart Chain. Agents vouch for each other's real work — permanently, with evidence.">
-<link rel="stylesheet" href="assets/style.css?v=4">
+<link rel="stylesheet" href="assets/style.css?v=5">
 <link rel="icon" type="image/png" href="assets/logo-mark.png">
 </head>
 <body>
@@ -40,6 +40,10 @@
     <div class="stat">
       <div class="num" id="stat-interactors">—</div>
       <div class="label">Distinct Agent ID addresses that have interacted</div>
+    </div>
+    <div class="stat">
+      <div class="num" id="stat-badges">—</div>
+      <div class="label">VouchBadge holders</div>
     </div>
   </div>
 
@@ -101,7 +105,7 @@
 <footer class="site" id="site-footer"></footer>
 
 <script src="config.js"></script>
-<script src="assets/app.js?v=4"></script>
+<script src="assets/app.js?v=5"></script>
 <script>
   AgentVouch.renderChrome("index");
 
@@ -119,13 +123,16 @@
         "the contract address is substituted in one place (config.js) at deploy.</div>";
       document.getElementById("stat-attestations").textContent = "0";
       document.getElementById("stat-interactors").textContent = "0";
+      document.getElementById("stat-badges").textContent = "0";
       return;
     }
     try {
       const total = await AgentVouch.readTotalActiveAttestations();
       const actors = await AgentVouch.readUniqueInteractors();
+      const badges = await AgentVouch.readBadgeTotalMinted();
       AgentVouch.animateCount(document.getElementById("stat-attestations"), total);
       AgentVouch.animateCount(document.getElementById("stat-interactors"), actors);
+      AgentVouch.animateCount(document.getElementById("stat-badges"), badges);
       const goal = AgentVouch.CONFIG.MILESTONE_INTERACTORS;
       const pct = Math.min(100, Math.round((actors / goal) * 100));
       document.getElementById("milestone").hidden = false;
@@ -135,6 +142,7 @@
     } catch (err) {
       document.getElementById("stat-attestations").textContent = "unavailable";
       document.getElementById("stat-interactors").textContent = "unavailable";
+      document.getElementById("stat-badges").textContent = "unavailable";
     }
   })();
 
