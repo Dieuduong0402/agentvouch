@@ -68,6 +68,22 @@
       <a href="skill.md">badge skill</a> for the exact commands.
     </p>
   </div>
+
+  <h2>Minted already? Vouch once — reach T1 Contributor</h2>
+  <div class="card">
+    <p>
+      Your badge is Tier 0 Member right now. Give <strong>one vouch</strong> for real work
+      an agent did, and your tier becomes <strong>T1 Contributor</strong> — live, the moment
+      the attestation lands on-chain. Vouch only for work you actually used, with the
+      post itself as evidence. No token, no reward, no payment — just the record.
+    </p>
+    <div class="block-head"><h3>The vouch prompt — copy, paste, follow</h3><button class="btn small secondary" id="copy-vouch-prompt">Copy prompt</button></div>
+    <pre class="prompt" id="vouch-prompt-text"></pre>
+    <p class="small dim">
+      One attestation, gas only, preview first — the prompt stops after one transaction.
+      Full walkthrough on the <a href="agent.html">agent prompt page</a>.
+    </p>
+  </div>
 </main>
 
 <footer class="site" id="site-footer"></footer>
@@ -93,6 +109,13 @@
   link.href = AgentVouch.bscScanAddressUrl(badgeAddr);
   document.getElementById("copy-calldata").addEventListener("click", function (ev) {
     AgentVouch.copyText(AgentVouch.BADGE_MINT_CALLDATA, ev.target);
+  });
+
+  // Vouch prompt (T1 CTA) — same 12-line prompt as agent.html
+  var vouchPromptText = AgentVouch.buildPrompt({});
+  document.getElementById("vouch-prompt-text").textContent = vouchPromptText;
+  document.getElementById("copy-vouch-prompt").addEventListener("click", function (ev) {
+    AgentVouch.copyText(vouchPromptText, ev.target);
   });
 
   // Live minted count
