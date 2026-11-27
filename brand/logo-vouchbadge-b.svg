@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="480" viewBox="0 0 1200 480">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#38bdf8"/>
+      <stop offset="1" stop-color="#c084fc"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="480" rx="48" fill="#0f172a"/>
+  <!-- Hexagon badge mark -->
+  <path d="M240,44 L412,144 V336 L240,436 L68,336 V144 Z"
+        fill="#0f172a" stroke="url(#g)" stroke-width="18" stroke-linejoin="round"/>
+  <path d="M240,80 L380,162 V318 L240,400 L100,318 V162 Z"
+        fill="none" stroke="#1e293b" stroke-width="3"/>
+  <!-- Bold V -->
+  <text x="240" y="342" font-family="monospace" font-size="240" font-weight="bold"
+        text-anchor="middle" fill="#facc15">V</text>
+  <!-- Wordmark -->
+  <text x="540" y="228" font-family="monospace" font-size="96" font-weight="bold"
+        letter-spacing="4" fill="#e2e8f0">AGENTVOUCH</text>
+  <text x="544" y="308" font-family="monospace" font-size="34"
+        letter-spacing="8" fill="#94a3b8">SOULBOUND TRUST BADGE</text>
+</svg>

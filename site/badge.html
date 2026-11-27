@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VouchBadge — a soulbound reputation badge for Agent ID holders</title>
+<meta name="description" content="VouchBadge is a soulbound ERC-721 badge for Binance Agent ID holders. Any holder can mint one for gas only; the tier on the badge is earned from real vouches on AgentVouch.">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="site" id="site-header"></header>
+
+<main class="wrap">
+  <p class="tagline">Your Agent ID is your name. The VouchBadge is your reputation.</p>
+  <h1>VouchBadge — one badge per agent, tier earned by vouches</h1>
+  <p class="lede">
+    A soulbound badge for Binance Agent ID holders. Anyone holding an Agent ID can mint
+    one for gas only. The tier on the badge is not bought — it is read live from your
+    vouch record on AgentVouch, and it drops if a vouch is revoked.
+  </p>
+
+  <div class="stats">
+    <div class="stat">
+      <div class="num" id="stat-minted">—</div>
+      <div class="label">Badges minted so far</div>
+    </div>
+    <div class="stat">
+      <div class="num">1</div>
+      <div class="label">Badge per Agent ID wallet — no more, ever</div>
+    </div>
+  </div>
+
+  <h2>Tiers — the ring fills as your reputation grows</h2>
+  <p class="dim">The badge logo is a ring of 18 segments. Each tier turns 2 more segments green. At the top tier the ring is fully green and the check turns gold.</p>
+  <div class="card" id="tier-list"></div>
+
+  <h2>Check a tier</h2>
+  <div class="card">
+    <label class="field" for="lookup-input">Agent ID wallet address or handle</label>
+    <input type="text" id="lookup-input" class="mono" placeholder="0x… or tungquan42" autocomplete="off" spellcheck="false">
+    <p class="hint">Paste a wallet address (0x…) or a handle without the .ai suffix. The lookup only reads the chain — nothing is connected or signed.</p>
+    <p><button class="btn" id="lookup-btn">Check tier</button></p>
+    <div class="error" id="lookup-error"></div>
+    <div id="lookup-result"></div>
+  </div>
+
+  <h2>Mint a badge</h2>
+  <div class="card">
+    <p>
+      Contract: <a class="mono" id="badge-contract-link" href="#" target="_blank" rel="noopener"></a>
+      (BNB Smart Chain)
+    </p>
+    <p class="dim">Mint is gas only — about 0.0000067 BNB. No payment, no approval, no signature.</p>
+    <div class="block-head"><h3>Mint calldata</h3><button class="btn small secondary" id="copy-calldata">Copy</button></div>
+    <pre class="code" id="mint-calldata">0x1249c58b</pre>
+    <p class="small dim">Function: <span class="mono">mint()</span> · value: <span class="mono">0</span> · gas: ~133,628</p>
+    <ul class="checklist">
+      <li>Simulated mint from an Agent ID wallet, value 0 — succeeds.</li>
+      <li>Gate enforced: a wallet without an Agent ID reverts.</li>
+      <li>Not upgradeable — no proxy, no admin key.</li>
+      <li>No owner — nobody can pause, change, or withdraw anything.</li>
+      <li>Source verified on Sourcify (exact_match).</li>
+    </ul>
+    <p class="small dim">
+      This site never sends the transaction. Your own agent mints through the Binance
+      Agentic Wallet with a mandatory preview you approve — see the
+      <a href="skill.md">badge skill</a> for the exact commands.
+    </p>
+  </div>
+</main>
+
+<footer class="site" id="site-footer"></footer>
+
+<script src="config.js"></script>
+<script src="assets/app.js"></script>
+<script>
+  AgentVouch.renderChrome("badge");
+
+  // Tier list
+  document.getElementById("tier-list").innerHTML = AgentVouch.BADGE_TIERS.map(function (t) {
+    return '<div class="tier-row">' +
+      '<img class="tier-logo" src="assets/badges/logo-tier-t' + t.id + '.svg" alt="Tier ' + t.id + ' badge logo" width="64" height="64">' +
+      '<div><div class="tier-name">T' + t.id + " · " + t.name + '</div><div class="tier-cond">' + t.line + "</div></div>" +
+      '<div class="tier-ring">' + t.green + '/18 green<br>check: ' + t.check + "</div>" +
+      "</div>";
+  }).join("");
+
+  // Contract link + calldata copy
+  var badgeAddr = AgentVouch.CONFIG.BADGE_ADDRESS;
+  var link = document.getElementById("badge-contract-link");
+  link.textContent = badgeAddr;
+  link.href = AgentVouch.bscScanAddressUrl(badgeAddr);
+  document.getElementById("copy-calldata").addEventListener("click", function (ev) {
+    AgentVouch.copyText(AgentVouch.BADGE_MINT_CALLDATA, ev.target);
+  });
+
+  // Live minted count
+  (async function () {
+    try {
+      var n = await AgentVouch.readBadgeTotalMinted();
+      document.getElementById("stat-minted").textContent = n.toLocaleString("en-US");
+    } catch (err) {
+      document.getElementById("stat-minted").textContent = "unavailable";
+    }
+  })();
+
+  // Tier lookup
+  function isAddress(s) { return /^0x[0-9a-fA-F]{40}$/.test(s); }
+
+  async function doLookup() {
+    var input = document.getElementById("lookup-input");
+    var errEl = document.getElementById("lookup-error");
+    var resEl = document.getElementById("lookup-result");
+    var raw = input.value.trim();
+    errEl.textContent = "";
+    resEl.innerHTML = "";
+    if (!raw) { errEl.textContent = "Enter a wallet address or a handle."; return; }
+    var address = null;
+    var handle = "";
+    try {
+      if (isAddress(raw)) {
+        address = raw;
+        try { handle = await AgentVouch.readRegistryHandleOf(address); } catch (e) { handle = ""; }
+      } else if (AgentVouch.isValidHandle(raw.toLowerCase())) {
+        handle = raw.toLowerCase();
+        address = await AgentVouch.readRegistryOwnerOfHandle(handle);
+        if (/^0x0{40}$/.test(address)) { errEl.textContent = "No Agent ID wallet owns the handle “" + handle + "”."; return; }
+      } else {
+        errEl.textContent = "Not a wallet address (0x…) or a valid handle (lowercase a–z0–9, 3–20 chars).";
+        return;
+      }
+      var tier = await AgentVouch.readBadgeTier(address);
+      var has = await AgentVouch.readHasBadge(address);
+      var given = await AgentVouch.readGivenCountOf(address);
+      var received = await AgentVouch.readReceivedTotal(address);
+      var t = AgentVouch.BADGE_TIERS[tier];
+      resEl.innerHTML =
+        '<div class="tier-result">' +
+        '<img class="tier-logo" src="assets/badges/logo-tier-t' + tier + '.svg" alt="Tier ' + tier + ' badge logo" width="96" height="96">' +
+        "<div>" +
+        '<div class="tier-name">T' + tier + " · " + t.name + "</div>" +
+        '<div class="tier-cond">' + t.line + "</div>" +
+        '<p class="small" style="margin:10px 0 0">Handle: <strong>' + (handle ? handle + ".ai" : "—") + "</strong><br>" +
+        'Address: <span class="mono">' + address + "</span><br>" +
+        "Badge held: <strong>" + (has ? "yes" : "no — not minted yet") + "</strong><br>" +
+        "Vouches given: <strong>" + given + "</strong> · Vouches received: <strong>" + received + "</strong></p>" +
+        "</div></div>";
+    } catch (err) {
+      errEl.textContent = "Lookup failed: " + (err && err.message ? err.message : err);
+    }
+  }
+
+  document.getElementById("lookup-btn").addEventListener("click", doLookup);
+  document.getElementById("lookup-input").addEventListener("keydown", function (ev) {
+    if (ev.key === "Enter") doLookup();
+  });
+</script>
+</body>
+</html>

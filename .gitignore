@@ -1,0 +1,32 @@
+# Compiler files
+cache/
+out/
+
+# Commonly ignored directories
+.logs/
+.ignore/
+
+# Ignores development broadcast logs
+!/broadcast
+/broadcast/*/31337/
+/broadcast/**/dry-run/
+
+# Sensitive / local-only — NEVER push
+/broadcast/
+preflight-wallets.json
+baw-pair-qr-*.png
+.gas-snapshot
+__pycache__/
+badge_stats_state.json
+site/badge-preview*
+indexer-mainnet/
+cache/
+out/
+
+# Docs
+docs/
+
+# Dotenv file
+.env
+.env.*
+!.env.example

@@ -1,0 +1,145 @@
+{
+  "generatedAt": "2026-11-26T17:26:50Z",
+  "contract": "0xed4d84A891EA97aAb5D412cd36035dd7aA7BF2b9",
+  "scannedToBlock": 135886375,
+  "totalMinted": 9,
+  "totalHolders": 9,
+  "eventHoldersMismatch": false,
+  "tierDistribution": {
+    "0": 9,
+    "1": 0,
+    "2": 0,
+    "3": 0,
+    "4": 0
+  },
+  "holders": [
+    {
+      "address": "0xA4eA9981Efb583f68687d70a1FCd6f36297D9E91",
+      "tokenId": 1,
+      "firstSeenBlock": 135884759,
+      "firstSeenTx": "0xf471fefc2adf59121958f6d36dbb4676daf473fbe605ff0b66d548a4022434e1",
+      "handle": "aestafis",
+      "tier": 0,
+      "tierName": "Member"
+    },
+    {
+      "address": "0x810cd0ccFf0a992F4B0E74c9890A9faA38c0E20A",
+      "tokenId": 2,
+      "firstSeenBlock": 135885422,
+      "firstSeenTx": "0xb2ba52c2f3b89a656e49d323f4f307cc67713e7b1239bc8762c5ee7c8931c537",
+      "handle": "023",
+      "tier": 0,
+      "tierName": "Member"
+    },
+    {
+      "address": "0xEEdD07B40D7683344A65C5EB457Ae44A98e41Ad5",
+      "tokenId": 3,
+      "firstSeenBlock": 135885429,
+      "firstSeenTx": "0x5261511339a5a8df30b24e7358ecebd51c513651cf50c9d151a1f0bd13ccc5ea",
+      "handle": "0322",
+      "tier": 0,
+      "tierName": "Member"
+    },
+    {
+      "address": "0x4d50DD3E57d1F4adade559Bd075BcA0496aaa29b",
+      "tokenId": 4,
+      "firstSeenBlock": 135885568,
+      "firstSeenTx": "0xb628c6804dd3f39ff1a36c477db62cfc2bd82916e8f5010ff18b450c3ac55fee",
+      "handle": "giraffi",
+      "tier": 0,
+      "tierName": "Member"
+    },
+    {
+      "address": "0xe0eF50928e36B5538B705B0860E8e45705971A07",
+      "tokenId": 5,
+      "firstSeenBlock": 135885756,
+      "firstSeenTx": "0x3663edbc62953ae51d4e8ce825a573c3ec31418628e53bd09eb69a4486185048",
+      "handle": "xiaozhang0113",
+      "tier": 0,
+      "tierName": "Member"
+    },
+    {
+      "address": "0xd944bddf954d0C26b32005a5D723948fAd37007a",
+      "tokenId": 6,
+      "firstSeenBlock": 135885992,
+      "firstSeenTx": "0x41553b97a69ecb55e71d04a6a97b3b8b342dababcbbdfa1b19ec81c6d49067f6",
+      "handle": "mm111",
+      "tier": 0,
+      "tierName": "Member"
+    },
+    {
+      "address": "0x3cB4e671E2A1ECe36246d397190D6F185eFB4efb",
+      "tokenId": 7,
+      "firstSeenBlock": 135885994,
+      "firstSeenTx": "0x44ef2d44187aa5159892fbfcf55bed796c333facad62f2990562cfd509522e22",
+      "handle": "mm1111",
+      "tier": 0,
+      "tierName": "Member"
+    },
+    {
+      "address": "0x22CF3CcDA4f4cc65B24c53BCFfBa7a78b058Cf75",
+      "tokenId": 8,
+      "firstSeenBlock": 135886125,
+      "firstSeenTx": "0x9f016526a11cf97d4363aa29bd6a9ab068d6006709e12ed315157dfaa62376e6",
+      "handle": "2276",
+      "tier": 0,
+      "tierName": "Member"
+    },
+    {
+      "address": "0x409511537ba53eac0535007C0e24261B7d8DBb67",
+      "tokenId": 9,
+      "firstSeenBlock": 135886339,
+      "firstSeenTx": "0x2c83b8293c9ae46e4293b12b2b3f032f4e201954fcfaf6c926431ebc337c50f3",
+      "handle": "ikball117",
+      "tier": 0,
+      "tierName": "Member"
+    }
+  ],
+  "newestMinters": [
+    {
+      "address": "0x409511537ba53eac0535007C0e24261B7d8DBb67",
+      "tokenId": 9,
+      "firstSeenBlock": 135886339,
+      "firstSeenTx": "0x2c83b8293c9ae46e4293b12b2b3f032f4e201954fcfaf6c926431ebc337c50f3",
+      "handle": "ikball117",
+      "tier": 0,
+      "tierName": "Member"
+    },
+    {
+      "address": "0x22CF3CcDA4f4cc65B24c53BCFfBa7a78b058Cf75",
+      "tokenId": 8,
+      "firstSeenBlock": 135886125,
+      "firstSeenTx": "0x9f016526a11cf97d4363aa29bd6a9ab068d6006709e12ed315157dfaa62376e6",
+      "handle": "2276",
+      "tier": 0,
+      "tierName": "Member"
+    },
+    {
+      "address": "0x3cB4e671E2A1ECe36246d397190D6F185eFB4efb",
+      "tokenId": 7,
+      "firstSeenBlock": 135885994,
+      "firstSeenTx": "0x44ef2d44187aa5159892fbfcf55bed796c333facad62f2990562cfd509522e22",
+      "handle": "mm1111",
+      "tier": 0,
+      "tierName": "Member"
+    },
+    {
+      "address": "0xd944bddf954d0C26b32005a5D723948fAd37007a",
+      "tokenId": 6,
+      "firstSeenBlock": 135885992,
+      "firstSeenTx": "0x41553b97a69ecb55e71d04a6a97b3b8b342dababcbbdfa1b19ec81c6d49067f6",
+      "handle": "mm111",
+      "tier": 0,
+      "tierName": "Member"
+    },
+    {
+      "address": "0xe0eF50928e36B5538B705B0860E8e45705971A07",
+      "tokenId": 5,
+      "firstSeenBlock": 135885756,
+      "firstSeenTx": "0x3663edbc62953ae51d4e8ce825a573c3ec31418628e53bd09eb69a4486185048",
+      "handle": "xiaozhang0113",
+      "tier": 0,
+      "tierName": "Member"
+    }
+  ]
+}

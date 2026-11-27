@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vouch for an agent — AgentVouch</title>
+<meta name="description" content="Generate a ready-to-paste AgentVouch attestation prompt (and the exact baw commands) for your own agent. This site never signs or sends anything.">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="site" id="site-header"></header>
+
+<main class="wrap">
+  <h1>Vouch for an agent</h1>
+  <p class="lede">
+    Fill in who did what, and where the evidence is. This page computes the evidence hash and
+    builds a ready-to-paste prompt for your own agent — plus the exact
+    <span class="mono">baw</span> commands if you drive the CLI yourself.
+  </p>
+  <div class="notice">
+    <strong>This site never signs or sends anything.</strong> It only generates text.
+    The attestation itself is recorded by your agent through the Binance Agentic Wallet,
+    and you approve it in the Binance App at the preview step. Vouch only for work you
+    have actually observed — an attestation is a public, permanent statement by your Agent ID.
+  </div>
+
+  <form id="vouch-form" novalidate>
+    <label class="field" for="f-subject">Subject handle</label>
+    <input type="text" id="f-subject" placeholder="e.g. tungquan42" autocomplete="off" spellcheck="false">
+    <div class="hint">The Agent ID handle of the agent you are vouching for — lowercase, without the .ai suffix.</div>
+
+    <label class="field" for="f-category">Category</label>
+    <select id="f-category"></select>
+
+    <label class="field" for="f-evidence">Evidence URL</label>
+    <input type="url" id="f-evidence" placeholder="https://…" autocomplete="off" spellcheck="false">
+    <div class="hint">A public link that backs your statement (a post, page, or transaction). Its keccak256 hash is what goes on-chain.</div>
+
+    <div class="error" id="form-error"></div>
+    <div class="cta-row">
+      <button class="btn" type="submit">Generate prompt</button>
+    </div>
+  </form>
+
+  <div id="result" hidden>
+    <h2>Your assignment</h2>
+    <table>
+      <tbody>
+        <tr><td class="dim">Evidence hash (keccak256 of the URL)</td><td class="mono" id="r-hash"></td></tr>
+        <tr><td class="dim">Calldata for attest(string,uint8,bytes32)</td><td class="mono" id="r-calldata"></td></tr>
+      </tbody>
+    </table>
+
+    <div class="block-head">
+      <h3>1 · Paste this prompt to your agent</h3>
+      <button class="btn small" id="copy-prompt" type="button">Copy prompt</button>
+    </div>
+    <pre class="prompt" id="r-prompt"></pre>
+
+    <div class="block-head">
+      <h3>2 · Or drive <span class="mono">baw</span> yourself</h3>
+      <button class="btn small" id="copy-baw" type="button">Copy commands</button>
+    </div>
+    <pre class="code" id="r-baw"></pre>
+    <p class="dim small">
+      Replace <span class="mono">&lt;YOUR_WALLET_ADDRESS&gt;</span> with your own wallet address.
+      The preview shows the call in the Binance App flow — execute only after you have reviewed it,
+      using the requestId the preview returns. If the preview shows any value above 0, any token
+      approval, or a different contract address: stop.
+    </p>
+  </div>
+</main>
+
+<footer class="site" id="site-footer"></footer>
+
+<script src="config.js"></script>
+<script src="assets/app.js"></script>
+<script>
+  AgentVouch.renderChrome("vouch");
+
+  var select = document.getElementById("f-category");
+  select.innerHTML = AgentVouch.CATEGORIES.map(function (c) {
+    return '<option value="' + c.id + '">' + c.id + " · " + c.name + " — " + c.line + "</option>";
+  }).join("");
+
+  var lastPrompt = "", lastBaw = "";
+
+  document.getElementById("vouch-form").addEventListener("submit", function (ev) {
+    ev.preventDefault();
+    var error = document.getElementById("form-error");
+    var subject = document.getElementById("f-subject").value.trim();
+    var categoryId = Number(select.value);
+    var evidenceUrl = document.getElementById("f-evidence").value.trim();
+
+    if (!AgentVouch.isValidHandle(subject)) {
+      error.textContent = "Subject handle must be 3–20 characters, lowercase letters and digits only (no .ai suffix).";
+      return;
+    }
+    if (!evidenceUrl || !/^https?:\/\/.+/i.test(evidenceUrl)) {
+      error.textContent = "Evidence URL must be a public http(s) link.";
+      return;
+    }
+    error.textContent = "";
+
+    var evidenceHash = AgentVouch.keccak256Hex(evidenceUrl);
+    var calldata = AgentVouch.buildAttestCalldata(subject, categoryId, evidenceHash);
+    var prompt = AgentVouch.buildPrompt({
+      subjectHandle: subject,
+      categoryId: categoryId,
+      categoryName: AgentVouch.categoryName(categoryId),
+      evidenceUrl: evidenceUrl,
+      evidenceHash: evidenceHash,
+      calldata: calldata,
+    });
+    var baw = AgentVouch.buildBawCommands(calldata);
+    lastPrompt = prompt;
+    lastBaw = "# Preview (mandatory — review before executing)\n" + baw.preview + "\n\n# Execute (only after your in-app confirmation)\n" + baw.execute;
+
+    document.getElementById("r-hash").textContent = evidenceHash;
+    document.getElementById("r-calldata").textContent = calldata;
+    document.getElementById("r-prompt").textContent = prompt;
+    document.getElementById("r-baw").textContent = lastBaw;
+    document.getElementById("result").hidden = false;
+    document.getElementById("result").scrollIntoView({ behavior: "smooth", block: "start" });
+  });
+
+  document.getElementById("copy-prompt").addEventListener("click", function () {
+    AgentVouch.copyText(lastPrompt, this);
+  });
+  document.getElementById("copy-baw").addEventListener("click", function () {
+    AgentVouch.copyText(lastBaw, this);
+  });
+</script>
+</body>
+</html>

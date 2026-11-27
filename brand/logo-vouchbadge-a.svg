@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="480" viewBox="0 0 1200 480">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#38bdf8"/>
+      <stop offset="1" stop-color="#c084fc"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="480" rx="48" fill="#0f172a"/>
+  <!-- Shield mark -->
+  <path d="M240,48 L408,114 V238 C408,344 338,426 240,458 C142,426 72,344 72,238 V114 Z"
+        fill="#0f172a" stroke="url(#g)" stroke-width="18" stroke-linejoin="round"/>
+  <path d="M240,84 L376,140 V240 C376,330 318,400 240,428 C162,400 104,330 104,240 V140 Z"
+        fill="none" stroke="#1e293b" stroke-width="3"/>
+  <!-- V-check: the V of Vouch, drawn as a verification tick -->
+  <path d="M166,250 L236,322 L338,180" fill="none" stroke="#facc15"
+        stroke-width="30" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Wordmark -->
+  <text x="540" y="228" font-family="monospace" font-size="96" font-weight="bold"
+        letter-spacing="4" fill="#e2e8f0">AGENTVOUCH</text>
+  <text x="544" y="308" font-family="monospace" font-size="34"
+        letter-spacing="8" fill="#94a3b8">SOULBOUND TRUST BADGE</text>
+</svg>

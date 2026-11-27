@@ -1,0 +1,30 @@
+[profile.default]
+src = "src"
+out = "out"
+test = "test"
+libs = ["lib"]
+
+# Compiler settings are FIXED by the design (DESIGN.md §2.1) and must match
+# the BscScan verification settings exactly:
+#   solc 0.8.24 (same version as the SPACE ID HandleRegistry), optimizer on,
+#   200 runs, no via-IR.
+solc = "0.8.24"
+# EVM version pinned to "shanghai": BNB Smart Chain (chainId 56) fully
+# supports Shanghai (incl. PUSH0). Cancun-only opcodes (MCOPY, TSTORE/TLOAD)
+# are deliberately avoided so the bytecode runs on BSC regardless of the
+# node's Cancun-feature rollout state, at no functional cost to this contract.
+evm_version = "shanghai"
+optimizer = true
+optimizer_runs = 200
+via_ir = false
+
+# Bytecode metadata is kept so the deployed bytecode is reproducible for
+# BscScan verification.
+bytecode_hash = "ipfs"
+cbor_metadata = true
+
+[fmt]
+line_length = 110
+bracket_spacing = true
+
+# See more config options https://github.com/foundry-rs/foundry/blob/master/crates/config/REFERENCE.md
