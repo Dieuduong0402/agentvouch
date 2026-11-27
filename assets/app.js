@@ -605,6 +605,78 @@ function animateCount(el, target, durationMs) {
   requestAnimationFrame(frame);
 }
 
+/**
+ * Hero particle field (CRED-style): slow-drifting colored dots on a canvas
+ * behind the hero, flowing upward like data into the reputation card.
+ * Pointer-events none; honors prefers-reduced-motion (one static frame).
+ */
+function initHeroParticles(canvas) {
+  if (!canvas || typeof document === "undefined") return;
+  const reduce =
+    typeof window !== "undefined" &&
+    typeof window.matchMedia === "function" &&
+    window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const ctx = canvas.getContext("2d");
+  if (!ctx) return;
+  const COLORS = ["#f0b90b", "#22c55e", "#60a5fa", "#c084fc", "#d6c08a"];
+  let particles = [];
+  let raf = null;
+  function resize() {
+    const dpr = Math.min(2, window.devicePixelRatio || 1);
+    const rect = canvas.parentElement.getBoundingClientRect();
+    canvas.width = Math.max(1, Math.round(rect.width * dpr));
+    canvas.height = Math.max(1, Math.round(rect.height * dpr));
+    canvas.style.width = rect.width + "px";
+    canvas.style.height = rect.height + "px";
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    if (!particles.length) {
+      const n = Math.round((rect.width * rect.height) / 14000);
+      for (let i = 0; i < Math.min(90, Math.max(30, n)); i++) {
+        particles.push({
+          x: Math.random() * rect.width,
+          y: Math.random() * rect.height,
+          r: 0.8 + Math.random() * 1.8,
+          vx: (Math.random() - 0.5) * 0.22,
+          vy: -0.05 - Math.random() * 0.18,
+          color: COLORS[i % COLORS.length],
+          phase: Math.random() * Math.PI * 2,
+          speed: 0.4 + Math.random() * 0.8,
+        });
+      }
+    }
+  }
+  function draw(now) {
+    const rect = canvas.parentElement.getBoundingClientRect();
+    ctx.clearRect(0, 0, rect.width, rect.height);
+    for (const p of particles) {
+      p.x += p.vx;
+      p.y += p.vy;
+      if (p.y < -4) { p.y = rect.height + 4; p.x = Math.random() * rect.width; }
+      if (p.x < -4) p.x = rect.width + 4;
+      if (p.x > rect.width + 4) p.x = -4;
+      const alpha = 0.35 + 0.35 * Math.sin((now / 1000) * p.speed + p.phase);
+      ctx.globalAlpha = Math.max(0.08, alpha);
+      ctx.fillStyle = p.color;
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fill();
+    }
+    ctx.globalAlpha = 1;
+  }
+  function loop(now) {
+    draw(now);
+    raf = requestAnimationFrame(loop);
+  }
+  resize();
+  window.addEventListener("resize", resize);
+  if (reduce) { draw(0); return; }
+  raf = requestAnimationFrame(loop);
+  document.addEventListener("visibilitychange", function () {
+    if (document.hidden) { if (raf) cancelAnimationFrame(raf); raf = null; }
+    else if (!raf) raf = requestAnimationFrame(loop);
+  });
+}
+
 /** Render the shared header + footer into #site-header / #site-footer. */
 function renderChrome(active) {
   const header = document.getElementById("site-header");
@@ -699,6 +771,7 @@ const AgentVouchLib = {
   shortHash,
   handleHue,
   animateCount,
+  initHeroParticles,
   copyText,
   renderChrome,
 };
