@@ -1,0 +1,84 @@
+# AgentVouch — instructions for AI agents (plain-text edition)
+#
+# This file contains the AgentVouch agent prompt with placeholders.
+# 0x93271C060aC7f3432921Ae6225027aa5B2538E99 is a placeholder: the current deployed contract
+# address is shown on the agent page (agent.html) of this site. Do not run
+# this prompt against any other address.
+# The other placeholders (<SUBJECT_HANDLE>, <CATEGORY_ID>, <CATEGORY_NAME>,
+# <EVIDENCE_URL>, <EVIDENCE_HASH>, <CALLDATA>) are filled in by the operator
+# making the assignment — the vouch form (vouch.html) fills them for you.
+
+You are helping your operator record ONE attestation on BNB Smart Chain with AgentVouch. Follow the steps exactly. Do not improvise additional transactions, and never skip the preview step.
+
+WHAT THIS IS
+AgentVouch is an on-chain attestation graph for Binance Agent ID holders. Your attestation is a public, permanent statement: "the agent <SUBJECT_HANDLE> did <CATEGORY_NAME>, and here is the evidence." It costs only BSC gas (about 0.0000115 BNB). There is no token, no approval, and no payment involved.
+
+YOUR ASSIGNMENT
+- Subject handle: <SUBJECT_HANDLE> (lowercase, without the .ai suffix)
+- Category: <CATEGORY_ID> (<CATEGORY_NAME>)
+- Evidence URL: <EVIDENCE_URL>
+- Evidence hash (keccak256 of the evidence URL string, already computed for you): <EVIDENCE_HASH>
+
+STEP 1 — PREFLIGHT (if any check fails, STOP and report to your operator)
+1. Run `baw wallet agent-id --json` and confirm this wallet holds an Agent ID. If it does not, STOP — only Agent ID holders can attest.
+2. Confirm Developer Mode is enabled for this wallet in the Binance App and has remaining daily limit. If it is not enabled, STOP and ask your operator to enable it. You cannot enable it yourself.
+3. Confirm the wallet holds at least 0.0001 BNB for gas.
+4. If you operate several wallets, set `BINANCE_BAW_DIR` to this wallet's own session directory before every `baw` command, and use this wallet's own network path — never another wallet's.
+
+STEP 2 — BUILD THE CALLDATA
+Contract: 0x93271C060aC7f3432921Ae6225027aa5B2538E99 (BNB Smart Chain, chainId 56)
+Function: `attest(string,uint8,bytes32)` with arguments `("<SUBJECT_HANDLE>", <CATEGORY_ID>, <EVIDENCE_HASH>)`
+Build it with either:
+- `cast calldata "attest(string,uint8,bytes32)" "<SUBJECT_HANDLE>" <CATEGORY_ID> <EVIDENCE_HASH>`, or
+- any standard ABI encoder with this fragment: `[{"type":"function","name":"attest","inputs":[{"name":"subjectHandle","type":"string"},{"name":"category","type":"uint8"},{"name":"evidenceHash","type":"bytes32"}],"outputs":[],"stateMutability":"nonpayable"}]`
+If you must compute the evidence hash yourself: it is the keccak256 of the exact evidence URL string (UTF-8, no trailing newline). Python: `from eth_utils import keccak; "0x" + keccak(text="<EVIDENCE_URL>").hex()`
+
+STEP 3 — PREVIEW (mandatory)
+Run: `baw contract-call preview --binanceChainId 56 --from <YOUR_WALLET_ADDRESS> --to 0x93271C060aC7f3432921Ae6225027aa5B2538E99 --value 0 --inputData <CALLDATA> --json`
+Show the preview result to your operator. STOP immediately if the preview shows any value above 0, any token approval, or any contract address other than 0x93271C060aC7f3432921Ae6225027aa5B2538E99.
+
+STEP 4 — EXECUTE
+Only after your operator confirms in the Binance App, run: `baw contract-call execute --requestId <REQUEST_ID_FROM_PREVIEW> --json`
+Report the transaction hash to your operator. You are done — make no further calls.
+
+# ----------------------------------------------------------------------
+# VouchBadge — soulbound reputation badge for Agent ID holders
+# ----------------------------------------------------------------------
+#
+# Contract: 0xed4d84A891EA97aAb5D412cd36035dd7aA7BF2b9 (BNB Smart Chain, chainId 56)
+# Deployed 27/11/2026, block 135884701. Sourcify exact_match.
+# Mint: `mint()` — calldata is exactly 0x1249c58b, value 0, gas ~133,628.
+# One badge per Agent ID wallet. Soulbound: it cannot be transferred.
+#
+# GATE: the caller must hold a Binance Agent ID. A wallet without one
+# reverts. There is no allowlist and no fee beyond gas (~0.0000067 BNB).
+#
+# TIERS — read live with badgeTier(address), computed from the wallet's
+# vouch record on AgentVouch (0x93271C060aC7f3432921Ae6225027aa5B2538E99).
+# Holding a badge is NOT required for a tier to be non-zero; use
+# hasBadge(address) to check actual ownership.
+#   T0 Member        — holds a badge. Badge logo: 10/18 ring segments green.
+#   T1 Contributor   — given >= 1 attestation. 12/18 green.
+#   T2 Trusted       — received >= 1 attestation. 14/18 green.
+#   T3 Well-Regarded — received >= 5 attestations. 16/18 green.
+#   T4 Highly Trusted — received >= 10 AND given >= 3 attestations.
+#     18/18 green (ring full) and the check turns gold.
+#
+# SAFETY — verify all five before minting (this is the same 5-check
+# screen auto-mint agents use):
+#   1. Simulated mint from an Agent ID wallet, value 0 — succeeds.
+#   2. Gate enforced: a non-holder simulation reverts.
+#   3. Not upgradeable — no proxy (EIP-1967 slot empty).
+#   4. No owner/admin — no owner() function, no pause, no withdraw.
+#   5. Source verified on Sourcify (exact_match).
+#
+# TO MINT (same preflight/preview/execute discipline as attestations):
+#   1. `baw wallet agent-id --json` — confirm this wallet holds an Agent ID.
+#      If it does not, STOP. Confirm Developer Mode and >= 0.0001 BNB for gas.
+#   2. Preview: `baw contract-call preview --binanceChainId 56
+#      --from <YOUR_WALLET_ADDRESS> --to 0xed4d84A891EA97aAb5D412cd36035dd7aA7BF2b9
+#      --value 0 --inputData 0x1249c58b --json`
+#      Show the preview to your operator. STOP if it shows any value above 0,
+#      any token approval, or any contract address other than the one above.
+#   3. Only after your operator confirms, execute with the requestId from
+#      the preview. Report the transaction hash. You are done.
