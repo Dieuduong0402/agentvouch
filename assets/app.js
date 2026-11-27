@@ -633,7 +633,7 @@ function initBackgroundRing(canvas) {
     H = window.innerHeight;
     cx = W / 2;
     cy = H / 2;
-    R = 0.33 * Math.max(W, H); // diameter = 2/3 of the longer side
+    R = 0.5 * Math.min(0.66 * Math.max(W, H), 0.92 * Math.min(W, H)); // as large as possible while the whole circle stays on screen (v3: the old 2/3-of-longer-side ring was taller than the viewport, so only side arcs showed and the dots read as scattered)
     canvas.width = Math.max(1, Math.round(W * dpr));
     canvas.height = Math.max(1, Math.round(H * dpr));
     canvas.style.width = W + "px";
@@ -653,7 +653,7 @@ function initBackgroundRing(canvas) {
       angle: angle,
       r: rr,
       speed: 0.6 + Math.random() * 0.8, // px per frame inward, straight line
-      size: 0.9 + Math.random() * 1.7,
+      size: 1.2 + Math.random() * 1.8,
       color: COLORS[(Math.random() * COLORS.length) | 0],
       phase: Math.random() * Math.PI * 2,
     };
@@ -661,29 +661,37 @@ function initBackgroundRing(canvas) {
 
   function drawRing(now) {
     // Dotted circle, like the logo: small white dots, no dashes
-    // (user 27/11 12:46). Uniform dots, so the slow rotation is invisible.
-    const dotR = Math.max(1.5, R * 0.0035);
-    ctx.fillStyle = "rgba(255,255,255,0.28)";
-    for (let i = 0; i < 60; i++) {
-      const a = rot + (i / 60) * Math.PI * 2;
+    // (user 27/11 12:46; 12:54: brighter + more dots so the ring reads
+    // as a circle, and sized to fit fully on screen).
+    const dotR = Math.max(2.5, R * 0.006);
+    ctx.fillStyle = "rgba(255,255,255,0.45)";
+    for (let i = 0; i < 90; i++) {
+      const a = rot + (i / 90) * Math.PI * 2;
       ctx.beginPath();
       ctx.arc(cx + Math.cos(a) * R, cy + Math.sin(a) * R, dotR, 0, Math.PI * 2);
       ctx.fill();
     }
-    // Centre point — WHITE dot with a soft white halo, gently breathing
-    // (user 27/11 12:46: ring + centre white, only particles yellow/green).
+    // Centre point — a small white TARGET ring + tiny core, not a solid disc:
+    // a solid disc camouflages the letters behind it (verified 12:54:
+    // the "t" of "about" vanished into the white disc). A thin outline
+    // leaves the text readable. (user 27/11 12:46: centre white.)
     const breathe = 1 + 0.08 * Math.sin(now / 900);
-    const cr = R * 0.032 * breathe;
-    const halo = ctx.createRadialGradient(cx, cy, 0, cx, cy, cr * 5);
-    halo.addColorStop(0, "rgba(255,255,255,0.12)");
+    const cr = R * 0.03 * breathe;
+    const halo = ctx.createRadialGradient(cx, cy, 0, cx, cy, cr * 3);
+    halo.addColorStop(0, "rgba(255,255,255,0.08)");
     halo.addColorStop(1, "rgba(255,255,255,0)");
     ctx.fillStyle = halo;
     ctx.beginPath();
-    ctx.arc(cx, cy, cr * 5, 0, Math.PI * 2);
+    ctx.arc(cx, cy, cr * 3, 0, Math.PI * 2);
     ctx.fill();
-    ctx.fillStyle = "rgba(255,255,255,0.55)";
+    ctx.strokeStyle = "rgba(255,255,255,0.6)";
+    ctx.lineWidth = 1.5;
     ctx.beginPath();
     ctx.arc(cx, cy, cr, 0, Math.PI * 2);
+    ctx.stroke();
+    ctx.fillStyle = "rgba(255,255,255,0.8)";
+    ctx.beginPath();
+    ctx.arc(cx, cy, 3, 0, Math.PI * 2);
     ctx.fill();
   }
 
