@@ -583,6 +583,28 @@ async function copyText(text, button) {
   }
 }
 
+/** Animate a stat number from 0 to `target` (ease-out, ~900ms). No-op when reduced motion is preferred. */
+function animateCount(el, target, durationMs) {
+  if (!el) return;
+  const reduce =
+    typeof window !== "undefined" &&
+    typeof window.matchMedia === "function" &&
+    window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (reduce || !target || target <= 0) {
+    el.textContent = Number(target || 0).toLocaleString("en-US");
+    return;
+  }
+  const duration = durationMs || 900;
+  const start = performance.now();
+  function frame(now) {
+    const t = Math.min(1, (now - start) / duration);
+    const eased = 1 - Math.pow(1 - t, 3);
+    el.textContent = Math.round(target * eased).toLocaleString("en-US");
+    if (t < 1) requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+}
+
 /** Render the shared header + footer into #site-header / #site-footer. */
 function renderChrome(active) {
   const header = document.getElementById("site-header");
@@ -676,6 +698,7 @@ const AgentVouchLib = {
   formatTimestamp,
   shortHash,
   handleHue,
+  animateCount,
   copyText,
   renderChrome,
 };

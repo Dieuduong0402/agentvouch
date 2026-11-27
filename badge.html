@@ -12,15 +12,15 @@
 <header class="site" id="site-header"></header>
 
 <main class="wrap">
-  <p class="tagline">Your Agent ID is your name. The VouchBadge is your reputation.</p>
-  <h1>VouchBadge — one badge per agent, tier earned by vouches</h1>
-  <p class="lede">
+  <p class="tagline anim" style="--d:.05s">Your Agent ID is your name. The VouchBadge is your reputation.</p>
+  <h1 class="anim" style="--d:.12s">VouchBadge — one badge per agent, <span class="grad">tier earned by vouches</span></h1>
+  <p class="lede anim" style="--d:.2s">
     A soulbound badge for Binance Agent ID holders. Anyone holding an Agent ID can mint
     one for gas only. The tier on the badge is not bought — it is read live from your
     vouch record on AgentVouch, and it drops if a vouch is revoked.
   </p>
 
-  <div class="stats">
+  <div class="stats anim" style="--d:.28s">
     <div class="stat">
       <div class="num" id="stat-minted">—</div>
       <div class="label"><span class="live-dot"></span>Badges minted so far</div>
@@ -99,7 +99,7 @@
   (async function () {
     try {
       var n = await AgentVouch.readBadgeTotalMinted();
-      document.getElementById("stat-minted").textContent = n.toLocaleString("en-US");
+      AgentVouch.animateCount(document.getElementById("stat-minted"), n);
     } catch (err) {
       document.getElementById("stat-minted").textContent = "unavailable";
     }
