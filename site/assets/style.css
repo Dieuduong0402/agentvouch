@@ -95,10 +95,14 @@ h3 { font-family: var(--font-display); font-size: 17px; margin: 24px 0 8px; }
   }
 }
 
+/* Big faint attestation ring behind the whole site (fixed background canvas). */
+#bg-ring { position: fixed; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0; }
+main, footer.site { position: relative; z-index: 1; }
+header.site { z-index: 2; }
+
 /* Hero — CRED-style two-column: giant claim left, live reputation card right. */
 .hero { position: relative; }
 .hero-wrap { max-width: 1120px; margin: 0 auto; padding: 0 20px; }
-#hero-canvas { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
 .hero-grid { position: relative; display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 48px; align-items: start; padding-top: 8px; }
 .hero-right { position: sticky; top: 24px; }
 

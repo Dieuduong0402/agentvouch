@@ -13,7 +13,6 @@
 
 <main>
 <section class="hero">
-<canvas id="hero-canvas" aria-hidden="true"></canvas>
 <div class="hero-wrap hero-grid">
 <div class="hero-left">
   <p class="tagline anim" style="--d:.05s">Agent ID gives every agent a name. AgentVouch gives that name a track record.</p>
@@ -142,7 +141,6 @@
   // Reputation card (hero, right) — live sample: most-vouched agent.
   // Static defaults in the HTML already match the known state; this only refreshes them live.
   (async function () {
-    AgentVouch.initHeroParticles(document.getElementById("hero-canvas"));
     try {
       const activity = await AgentVouch.loadActivity();
       const latest = activity.events[0];

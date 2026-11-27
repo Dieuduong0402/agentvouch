@@ -606,11 +606,13 @@ function animateCount(el, target, durationMs) {
 }
 
 /**
- * Hero particle field (CRED-style): slow-drifting colored dots on a canvas
- * behind the hero, flowing upward like data into the reputation card.
- * Pointer-events none; honors prefers-reduced-motion (one static frame).
+ * Big faint attestation ring behind the whole site (user 27/11 12:30):
+ * one large 18-segment ring like the logo, ~2/3 of the viewport, slowly
+ * rotating, with particles streaming from the ring into one gold centre
+ * point. Fixed, pointer-events none, behind all content. Honors
+ * prefers-reduced-motion (one static frame).
  */
-function initHeroParticles(canvas) {
+function initBackgroundRing(canvas) {
   if (!canvas || typeof document === "undefined") return;
   const reduce =
     typeof window !== "undefined" &&
@@ -619,54 +621,103 @@ function initHeroParticles(canvas) {
   const ctx = canvas.getContext("2d");
   if (!ctx) return;
   const COLORS = ["#f0b90b", "#22c55e", "#60a5fa", "#c084fc", "#d6c08a"];
+  const SEGMENTS = 18;
+  let W = 0, H = 0, cx = 0, cy = 0, R = 0;
   let particles = [];
+  let rot = 0;
   let raf = null;
+
   function resize() {
     const dpr = Math.min(2, window.devicePixelRatio || 1);
-    const rect = canvas.parentElement.getBoundingClientRect();
-    canvas.width = Math.max(1, Math.round(rect.width * dpr));
-    canvas.height = Math.max(1, Math.round(rect.height * dpr));
-    canvas.style.width = rect.width + "px";
-    canvas.style.height = rect.height + "px";
+    W = window.innerWidth;
+    H = window.innerHeight;
+    cx = W / 2;
+    cy = H / 2;
+    R = 0.33 * Math.max(W, H); // diameter = 2/3 of the longer side
+    canvas.width = Math.max(1, Math.round(W * dpr));
+    canvas.height = Math.max(1, Math.round(H * dpr));
+    canvas.style.width = W + "px";
+    canvas.style.height = H + "px";
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     if (!particles.length) {
-      const n = Math.round((rect.width * rect.height) / 14000);
-      for (let i = 0; i < Math.min(90, Math.max(30, n)); i++) {
-        particles.push({
-          x: Math.random() * rect.width,
-          y: Math.random() * rect.height,
-          r: 0.8 + Math.random() * 1.8,
-          vx: (Math.random() - 0.5) * 0.22,
-          vy: -0.05 - Math.random() * 0.18,
-          color: COLORS[i % COLORS.length],
-          phase: Math.random() * Math.PI * 2,
-          speed: 0.4 + Math.random() * 0.8,
-        });
-      }
+      for (let i = 0; i < 64; i++) particles.push(spawn(true));
     }
   }
+
+  function spawn(anywhere) {
+    const angle = Math.random() * Math.PI * 2;
+    const rr = anywhere
+      ? R * (0.25 + Math.random() * 0.8)
+      : R * (0.92 + Math.random() * 0.16);
+    return {
+      angle: angle,
+      r: rr,
+      speed: 0.45 + Math.random() * 0.75, // px per frame inward
+      swirl: (Math.random() - 0.5) * 0.012, // slight spiral
+      size: 0.9 + Math.random() * 1.7,
+      color: COLORS[(Math.random() * COLORS.length) | 0],
+      phase: Math.random() * Math.PI * 2,
+    };
+  }
+
+  function drawRing(now) {
+    // 18 segments, alternating green/cream, faint, slowly rotating.
+    const segSpan = (Math.PI * 2) / SEGMENTS;
+    const arcLen = segSpan * 0.5;
+    ctx.lineWidth = Math.max(3, R * 0.028);
+    ctx.lineCap = "round";
+    for (let i = 0; i < SEGMENTS; i++) {
+      const a0 = rot + i * segSpan;
+      ctx.strokeStyle = i % 2 === 0 ? "rgba(34,197,94,0.14)" : "rgba(214,192,138,0.14)";
+      ctx.beginPath();
+      ctx.arc(cx, cy, R, a0, a0 + arcLen);
+      ctx.stroke();
+    }
+    // Centre point — gold dot with a soft halo, gently breathing.
+    const breathe = 1 + 0.08 * Math.sin(now / 900);
+    const cr = R * 0.045 * breathe;
+    const halo = ctx.createRadialGradient(cx, cy, 0, cx, cy, cr * 4);
+    halo.addColorStop(0, "rgba(240,185,11,0.20)");
+    halo.addColorStop(1, "rgba(240,185,11,0)");
+    ctx.fillStyle = halo;
+    ctx.beginPath();
+    ctx.arc(cx, cy, cr * 4, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.fillStyle = "rgba(240,185,11,0.85)";
+    ctx.beginPath();
+    ctx.arc(cx, cy, cr, 0, Math.PI * 2);
+    ctx.fill();
+  }
+
   function draw(now) {
-    const rect = canvas.parentElement.getBoundingClientRect();
-    ctx.clearRect(0, 0, rect.width, rect.height);
-    for (const p of particles) {
-      p.x += p.vx;
-      p.y += p.vy;
-      if (p.y < -4) { p.y = rect.height + 4; p.x = Math.random() * rect.width; }
-      if (p.x < -4) p.x = rect.width + 4;
-      if (p.x > rect.width + 4) p.x = -4;
-      const alpha = 0.35 + 0.35 * Math.sin((now / 1000) * p.speed + p.phase);
-      ctx.globalAlpha = Math.max(0.08, alpha);
+    ctx.clearRect(0, 0, W, H);
+    rot += 0.00045;
+    drawRing(now);
+    for (let i = 0; i < particles.length; i++) {
+      const p = particles[i];
+      p.r -= p.speed;
+      p.angle += p.swirl;
+      if (p.r < R * 0.05) { particles[i] = spawn(false); continue; }
+      const x = cx + Math.cos(p.angle) * p.r;
+      const y = cy + Math.sin(p.angle) * p.r;
+      // Fade in from the ring, fade out into the centre point.
+      const fadeIn = (R * 1.08 - p.r) / (R * 0.08);
+      const fadeOut = (p.r - R * 0.05) / (R * 0.15);
+      const tw = 0.35 + 0.35 * Math.sin(now / 700 + p.phase);
+      ctx.globalAlpha = Math.max(0.05, Math.min(0.75, tw * Math.min(fadeIn, fadeOut)));
       ctx.fillStyle = p.color;
       ctx.beginPath();
-      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.arc(x, y, p.size, 0, Math.PI * 2);
       ctx.fill();
     }
     ctx.globalAlpha = 1;
   }
+
   function loop(now) {
     draw(now);
     raf = requestAnimationFrame(loop);
   }
+
   resize();
   window.addEventListener("resize", resize);
   if (reduce) { draw(0); return; }
@@ -675,6 +726,23 @@ function initHeroParticles(canvas) {
     if (document.hidden) { if (raf) cancelAnimationFrame(raf); raf = null; }
     else if (!raf) raf = requestAnimationFrame(loop);
   });
+}
+
+/** Mount the background ring canvas once the document exists. */
+function mountBackgroundRing() {
+  if (typeof document === "undefined" || document.getElementById("bg-ring")) return;
+  const bg = document.createElement("canvas");
+  bg.id = "bg-ring";
+  bg.setAttribute("aria-hidden", "true");
+  document.body.prepend(bg);
+  initBackgroundRing(bg);
+}
+if (typeof document !== "undefined") {
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", mountBackgroundRing);
+  } else {
+    mountBackgroundRing();
+  }
 }
 
 /** Render the shared header + footer into #site-header / #site-footer. */
@@ -771,7 +839,6 @@ const AgentVouchLib = {
   shortHash,
   handleHue,
   animateCount,
-  initHeroParticles,
   copyText,
   renderChrome,
 };
