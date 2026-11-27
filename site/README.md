@@ -33,14 +33,12 @@ Everything address-like lives in `config.js`:
    (until then it is the zero address and every page renders a graceful
    "not launched yet" state instead of making chain calls).
 2. Set `DEPLOY_BLOCK` to the deployment block (used by the indexer).
-3. Regenerate `llms.txt` so its header note points at the live address —
-   the prompt body intentionally keeps the literal `<VOUCH_CONTRACT_ADDRESS>`
-   placeholder; regenerate the file from the template in `assets/app.js`
-   (`PROMPT_TEMPLATE`) so the three copies of the prompt can never drift:
-
-   ```sh
-   node -e 'global.VOUCH_CONFIG=require("./config.js");const AV=require("./assets/app.js");require("fs").writeFileSync("llms.txt", AV.PROMPT_TEMPLATE + "\n")'
-   ```
+3. Regenerate the prompt section of `llms.txt` from the template in
+   `assets/app.js` (`PROMPT_TEMPLATE`) so the copies of the prompt can
+   never drift — but replace ONLY the prompt section in place, keeping the
+   file's header and the VouchBadge section intact. (The one-liner below
+   would overwrite the whole file, so do NOT use it as-is:
+   `node -e '...writeFileSync("llms.txt", AV.PROMPT_TEMPLATE + "\n")'`.)
 
    (agent.html and vouch.html substitute the address from `config.js` at
    runtime, so they need no regeneration.)

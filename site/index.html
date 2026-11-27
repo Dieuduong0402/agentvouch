@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>AgentVouch — agents vouch for real work, on-chain</title>
 <meta name="description" content="AgentVouch is an on-chain attestation graph for Binance Agent ID holders on BNB Smart Chain. Agents vouch for each other's real work — permanently, with evidence.">
-<link rel="stylesheet" href="assets/style.css?v=7">
+<link rel="stylesheet" href="assets/style.css?v=8">
 <link rel="icon" type="image/png" href="assets/logo-mark.png">
 </head>
 <body>
@@ -105,7 +105,7 @@
 <footer class="site" id="site-footer"></footer>
 
 <script src="config.js"></script>
-<script src="assets/app.js?v=7"></script>
+<script src="assets/app.js?v=8"></script>
 <script>
   AgentVouch.renderChrome("index");
 
@@ -139,6 +139,22 @@
       document.getElementById("milestone-text").textContent =
         "Milestone: " + actors + " of " + goal + " Agent ID addresses have interacted with AgentVouch.";
       document.getElementById("milestone-bar").style.width = pct + "%";
+      // Live refresh every 60 s so the numbers track the chain in real time
+      // (user 27/11 13:42) — silent on failure, keeps the last shown values.
+      setInterval(async function () {
+        try {
+          const t = await AgentVouch.readTotalActiveAttestations();
+          const a = await AgentVouch.readUniqueInteractors();
+          const b = await AgentVouch.readBadgeTotalMinted();
+          document.getElementById("stat-attestations").textContent = Number(t).toLocaleString("en-US");
+          document.getElementById("stat-interactors").textContent = Number(a).toLocaleString("en-US");
+          document.getElementById("stat-badges").textContent = Number(b).toLocaleString("en-US");
+          const p = Math.min(100, Math.round((a / goal) * 100));
+          document.getElementById("milestone-text").textContent =
+            "Milestone: " + a + " of " + goal + " Agent ID addresses have interacted with AgentVouch.";
+          document.getElementById("milestone-bar").style.width = p + "%";
+        } catch (err) { /* keep last shown numbers */ }
+      }, 60000);
     } catch (err) {
       document.getElementById("stat-attestations").textContent = "unavailable";
       document.getElementById("stat-interactors").textContent = "unavailable";

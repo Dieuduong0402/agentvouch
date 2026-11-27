@@ -441,38 +441,18 @@ function isValidHandle(handle) {
 /* <REQUEST_ID_FROM_PREVIEW>.                                          */
 /* ------------------------------------------------------------------ */
 
-const PROMPT_TEMPLATE = `You are helping your operator record ONE attestation on BNB Smart Chain with AgentVouch. Follow the steps exactly. Do not improvise additional transactions, and never skip the preview step.
+const PROMPT_TEMPLATE = `Vouch for one agent on AgentVouch (BNB Smart Chain, chainId 56). Record ONE attestation and stop — no extra transactions, never skip preview.
 
-WHAT THIS IS
-AgentVouch is an on-chain attestation graph for Binance Agent ID holders. Your attestation is a public, permanent statement: "the agent <SUBJECT_HANDLE> did <CATEGORY_NAME>, and here is the evidence." It costs only BSC gas (about 0.0000115 BNB). There is no token, no approval, and no payment involved.
+Contract: <VOUCH_CONTRACT_ADDRESS>
+Subject: <SUBJECT_HANDLE> (lowercase, no .ai suffix)
+Category: <CATEGORY_ID> (<CATEGORY_NAME>)
+Evidence: <EVIDENCE_URL>
+Evidence hash: <EVIDENCE_HASH>
 
-YOUR ASSIGNMENT
-- Subject handle: <SUBJECT_HANDLE> (lowercase, without the .ai suffix)
-- Category: <CATEGORY_ID> (<CATEGORY_NAME>)
-- Evidence URL: <EVIDENCE_URL>
-- Evidence hash (keccak256 of the evidence URL string, already computed for you): <EVIDENCE_HASH>
-
-STEP 1 — PREFLIGHT (if any check fails, STOP and report to your operator)
-1. Run \`baw wallet agent-id --json\` and confirm this wallet holds an Agent ID. If it does not, STOP — only Agent ID holders can attest.
-2. Confirm Developer Mode is enabled for this wallet in the Binance App and has remaining daily limit. If it is not enabled, STOP and ask your operator to enable it. You cannot enable it yourself.
-3. Confirm the wallet holds at least 0.0001 BNB for gas.
-4. If you operate several wallets, set \`BINANCE_BAW_DIR\` to this wallet's own session directory before every \`baw\` command, and use this wallet's own network path — never another wallet's.
-
-STEP 2 — BUILD THE CALLDATA
-Contract: <VOUCH_CONTRACT_ADDRESS> (BNB Smart Chain, chainId 56)
-Function: \`attest(string,uint8,bytes32)\` with arguments \`("<SUBJECT_HANDLE>", <CATEGORY_ID>, <EVIDENCE_HASH>)\`
-Build it with either:
-- \`cast calldata "attest(string,uint8,bytes32)" "<SUBJECT_HANDLE>" <CATEGORY_ID> <EVIDENCE_HASH>\`, or
-- any standard ABI encoder with this fragment: \`[{"type":"function","name":"attest","inputs":[{"name":"subjectHandle","type":"string"},{"name":"category","type":"uint8"},{"name":"evidenceHash","type":"bytes32"}],"outputs":[],"stateMutability":"nonpayable"}]\`
-If you must compute the evidence hash yourself: it is the keccak256 of the exact evidence URL string (UTF-8, no trailing newline). Python: \`from eth_utils import keccak; "0x" + keccak(text="<EVIDENCE_URL>").hex()\`
-
-STEP 3 — PREVIEW (mandatory)
-Run: \`baw contract-call preview --binanceChainId 56 --from <YOUR_WALLET_ADDRESS> --to <VOUCH_CONTRACT_ADDRESS> --value 0 --inputData <CALLDATA> --json\`
-Show the preview result to your operator. STOP immediately if the preview shows any value above 0, any token approval, or any contract address other than <VOUCH_CONTRACT_ADDRESS>.
-
-STEP 4 — EXECUTE
-Only after your operator confirms in the Binance App, run: \`baw contract-call execute --requestId <REQUEST_ID_FROM_PREVIEW> --json\`
-Report the transaction hash to your operator. You are done — make no further calls.`;
+1. Preflight — STOP and report if any fails: this wallet holds an Agent ID (\`baw wallet agent-id --json\`); Developer Mode is on with daily limit left; balance ≥ 0.0001 BNB for gas. (Several wallets? Use this wallet's own session dir for every baw command.)
+2. Calldata: \`cast calldata "attest(string,uint8,bytes32)" "<SUBJECT_HANDLE>" <CATEGORY_ID> <EVIDENCE_HASH>\` — or compute the hash first with \`cast keccak "<EVIDENCE_URL>"\` (keccak256 of the exact URL string, no trailing newline).
+3. Preview (mandatory): \`baw contract-call preview --binanceChainId 56 --from <YOUR_WALLET_ADDRESS> --to <VOUCH_CONTRACT_ADDRESS> --value 0 --inputData <CALLDATA> --json\` — show it to your operator. STOP if it shows any value above 0, any approval, or any other contract.
+4. Execute only after your operator confirms: \`baw contract-call execute --requestId <REQUEST_ID_FROM_PREVIEW> --json\` — then report the tx hash. Done.`;
 
 /**
  * Fill the prompt template. Any field not provided stays as its literal
@@ -609,7 +589,7 @@ function animateCount(el, target, durationMs) {
  * Big faint attestation ring behind the HERO frame only (user 27/11 12:30,
  * refined 12:46, scoped 13:19): one large dotted ring like the logo —
  * small WHITE dots, ~2/3 of the hero — with many particles streaming in
- * STRAIGHT lines from the ring into one WHITE centre point. Particles are
+ * STRAIGHT lines from the ring into one GOLD centre point. Particles are
  * yellow + green only. The canvas lives inside <section class="hero">,
  * absolute, pointer-events none, behind the hero content — it scrolls away
  * with the hero instead of staying pinned to the viewport. Honors
@@ -679,25 +659,26 @@ function initBackgroundRing(canvas) {
       ctx.arc(cx + Math.cos(a) * R, cy + Math.sin(a) * R, dotR, 0, Math.PI * 2);
       ctx.fill();
     }
-    // Centre point — a small white TARGET ring + tiny core, not a solid disc:
+    // Centre point — a small GOLD target ring + tiny core, not a solid disc:
     // a solid disc camouflages the letters behind it (verified 12:54:
     // the "t" of "about" vanished into the white disc). A thin outline
-    // leaves the text readable. (user 27/11 12:46: centre white.)
+    // leaves the text readable. (user 27/11 12:46: centre white;
+    // 27/11 13:42: centre gold.)
     const breathe = 1 + 0.08 * Math.sin(now / 900);
     const cr = R * 0.03 * breathe;
     const halo = ctx.createRadialGradient(cx, cy, 0, cx, cy, cr * 3);
-    halo.addColorStop(0, "rgba(255,255,255,0.08)");
-    halo.addColorStop(1, "rgba(255,255,255,0)");
+    halo.addColorStop(0, "rgba(240,185,11,0.10)");
+    halo.addColorStop(1, "rgba(240,185,11,0)");
     ctx.fillStyle = halo;
     ctx.beginPath();
     ctx.arc(cx, cy, cr * 3, 0, Math.PI * 2);
     ctx.fill();
-    ctx.strokeStyle = "rgba(255,255,255,0.6)";
+    ctx.strokeStyle = "rgba(240,185,11,0.65)";
     ctx.lineWidth = 1.5;
     ctx.beginPath();
     ctx.arc(cx, cy, cr, 0, Math.PI * 2);
     ctx.stroke();
-    ctx.fillStyle = "rgba(255,255,255,0.8)";
+    ctx.fillStyle = "rgba(240,185,11,0.9)";
     ctx.beginPath();
     ctx.arc(cx, cy, 3, 0, Math.PI * 2);
     ctx.fill();
